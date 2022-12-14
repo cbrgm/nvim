@@ -46,3 +46,7 @@ u.map("n", "<C-X>", "<cmd>%bd|e#|bd#<cr>", { desc = "Close all but the current b
 u.map("n", "<C-x>", "<cmd>bd!<cr>", { desc = "Close all but the current buffer" })
 -- u.map('n', '<leader>e', vim.diagnostic.open_float)
 -- u.map('n', '<leader>q', vim.diagnostic.setloclist)
+
+-- name = "Tmux",
+-- 				h = { "<cmd>silent !tmux splitw <cr>", "Tmux Vertical Pane" },
+-- 				v = { "<cmd>silent !tmux splitw -hf<cr>", "Tmux Horizontal Pane" },
