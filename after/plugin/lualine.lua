@@ -27,7 +27,9 @@ lualine.setup {
 			winbar = 1000,
 		}
 	},
-	sections = {
+	sections = {},
+	inactive_sections = {},
+	tabline = {
 		lualine_a = { "mode" },
 		lualine_b = { "branch", "diff", "diagnostics" },
 		lualine_c = { pwd, "filename" },
@@ -35,16 +37,12 @@ lualine.setup {
 		lualine_y = { "progress" },
 		lualine_z = { "location" }
 	},
-	inactive_sections = {
-		lualine_a = {},
-		lualine_b = {},
-		lualine_c = { "filename" },
-		lualine_x = { "location" },
-		lualine_y = {},
-		lualine_z = {}
-	},
-	tabline = {},
 	winbar = {},
 	inactive_winbar = {},
 	extensions = {},
 }
+
+lualine.hide({
+	place = { 'statusline', 'winbar' }, -- The segment this change applies to.
+	unhide = false, -- whether to reenable lualine again/
+})
