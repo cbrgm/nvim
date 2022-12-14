@@ -90,42 +90,53 @@ u.map("n", "<leader>hD", function()
 end, { desc = "Diff this against the last commit", noremap = true, silent = true })
 u.map("n", "<leader>htd", gitsigns.toggle_deleted, { desc = "Toggle deleted", noremap = true, silent = true })
 
--- Git mappings
+-- git mappings
 u.map("n", "<leader>GG", ":Git<cr>", { desc = "Git Status", noremap = true, silent = true })
 u.map("n", "<leader>GS", ":Git<cr>", { desc = "Git Status", noremap = true, silent = true })
-u.map("n", "<leader>GA", ":Git add<cr>", { desc = "Git add", noremap = true, silent = true })
-u.map("n", "<leader>GC", ":Git commit<cr>", { desc = "Git commit", noremap = true, silent = true })
-u.map("n", "<leader>GF", ":Git fetch<cr>", { desc = "Git fetch", noremap = true, silent = true })
-u.map("n", "<leader>GL", ":Git log<cr>", { desc = "Git log", noremap = true, silent = true })
-u.map("n", "<leader>GPL", ":Git pull<cr>", { desc = "Git pull", noremap = true, silent = true })
-u.map("n", "<leader>GPP", ":Git push<cr>", { desc = "Git push", noremap = true, silent = true })
+u.map("n", "<leader>GA", ":Git add<cr>", { desc = "Git Add", noremap = true, silent = true })
+u.map("n", "<leader>GC", ":Git commit<cr>", { desc = "Git Commit", noremap = true, silent = true })
+u.map("n", "<leader>GF", ":Git fetch<cr>", { desc = "Git Fetch", noremap = true, silent = true })
+u.map("n", "<leader>GL", ":Git log<cr>", { desc = "Git Log", noremap = true, silent = true })
+u.map("n", "<leader>GPL", ":Git pull<cr>", { desc = "Git Pull", noremap = true, silent = true })
+u.map("n", "<leader>GPP", ":Git push<cr>", { desc = "Git Push", noremap = true, silent = true })
 u.map("n", "<leader>GB", require("telescope.builtin").git_branches,
-  { desc = "Git branches", noremap = true, silent = true })
+  { desc = "Git Branches", noremap = true, silent = true })
 
-u.map("n", "<leader>gA", ":Git add --all<cr>", { desc = "Git add all", noremap = true, silent = true })
-u.map("n", "<leader>gaa", ":Git add --all<cr>", { desc = "Git add all", noremap = true, silent = true })
-u.map("n", "<leader>gaf", ":Git add :%<cr>", { desc = "Git add file", noremap = true, silent = true })
+-- git: add
+u.map("n", "<leader>gA", ":Git add --all<cr>", { desc = "Git Add (all)", noremap = true, silent = true })
+u.map("n", "<leader>gaa", ":Git add --all<cr>", { desc = "Git Add (all)", noremap = true, silent = true })
+u.map("n", "<leader>gaf", ":Git add :%<cr>", { desc = "Git Add File", noremap = true, silent = true })
+-- git: commit
 u.map("n", "<leader>gC", ":Git commit --verbose --all<cr>", { desc = "Git commit all", noremap = true, silent = true })
-u.map("n", "<leader>gcc", ":Git commit --verbose<cr>", { desc = "Git commit", noremap = true, silent = true })
+u.map("n", "<leader>gcc", ":git commit --verbose<cr>", { desc = "Git Commit", noremap = true, silent = true })
 u.map("n", "<leader>gcA", ":Git commit --verbose --amend<cr>",
   { desc = "Git commit (amend)", noremap = true, silent = true })
-u.map("n", "<leader>gca", ":Git commit --verbose --all<cr>", { desc = "Git commit (all)", noremap = true, silent = true })
-u.map("n", "<leader>gl", ":Gclog!<cr>", { desc = "Git log", noremap = true, silent = true })
-u.map("n", "<leader>gpa", ":Git push --all<cr>", { desc = "Git push all", noremap = true, silent = true })
-u.map("n", "<leader>gpp", ":Git push<cr>", { desc = "Git push", noremap = true, silent = true })
-u.map("n", "<leader>gpl", ":Git pull<cr>", { desc = "Git pull", noremap = true, silent = true })
-u.map("n", "<leader>gs", ":Git status<cr>", { desc = "Git status", noremap = true, silent = true })
-u.map("n", "<leader>gss", ":Git status<cr>", { desc = "Git status", noremap = true, silent = true })
--- branches
+u.map("n", "<leader>gca", ":Git commit --verbose --all<cr>", { desc = "Git Commit (all)", noremap = true, silent = true })
+u.map("n", "<leader>gl", ":Gclog!<cr>", { desc = "Git Log", noremap = true, silent = true })
+-- git: push pull
+u.map("n", "<leader>gpa", ":Git push --all<cr>", { desc = "Git Push (all)", noremap = true, silent = true })
+u.map("n", "<leader>gpp", ":Git push<cr>", { desc = "Git Push", noremap = true, silent = true })
+u.map("n", "<leader>gpl", ":Git pull<cr>", { desc = "Git Pull", noremap = true, silent = true })
+-- git: status
+u.map("n", "<leader>gs", ":Git status<cr>", { desc = "Git Status", noremap = true, silent = true })
+u.map("n", "<leader>gss", ":Git status<cr>", { desc = "Git Status", noremap = true, silent = true })
+-- git: branches
+local create_new_branch = function()
+  local input = vim.fn.input('Enter branch name: ')
+  input = input:gsub("%s+", "-")
+  input = string.gsub(input, "%s+", "-")
+  vim.cmd(":Git checkout -b " .. input)
+end
 u.map("n", "<leader>gB", require("telescope.builtin").git_branches,
-  { desc = "Git branches", noremap = true, silent = true })
+  { desc = "Git Branches", noremap = true, silent = true })
 u.map("n", "<leader>gbb", require("telescope.builtin").git_branches,
-  { desc = "Git branches", noremap = true, silent = true })
-u.map("n", "<leader>gnb", ":Git cob<cr>",
-  { desc = "Git new branch", noremap = true, silent = true })
--- browser
+  { desc = "Git Branches", noremap = true, silent = true })
+u.map("n", "<leader>gnb", create_new_branch,
+  { desc = "Git new Branch", noremap = true, silent = true })
+-- Github in browser
 u.map("n", "<leader>gO", "<cmd>silent !gh browse<CR>",
-  { desc = "Open Github Repository in Browser", noremap = true, silent = true })
+  { desc = "Open GitHub Repository In Browser", noremap = true, silent = true })
 u.map("n", "<leader>gopr", "<cmd>silent !gh pr view --web<CR>",
-  { desc = "Open Pull Request in Browser", noremap = true, silent = true })
-u.map("n", "<leader>goo", "<cmd>silent !gh browse<CR>", { desc = "Git status", noremap = true, silent = true })
+  { desc = "Open Pull Request In Browser", noremap = true, silent = true })
+u.map("n", "<leader>goo", "<cmd>silent !gh browse<CR>",
+  { desc = "Open GitHub Repository In Browser", noremap = true, silent = true })
