@@ -121,6 +121,7 @@ u.map("n", "<leader>gpa", ":Git push --all<cr>", { desc = "Git push all", norema
 u.map("n", "<leader>gpp", ":Git push<cr>", { desc = "Git push", noremap = true, silent = true })
 u.map("n", "<leader>gpl", ":Git pull<cr>", { desc = "Git pull", noremap = true, silent = true })
 u.map("n", "<leader>gs", ":Git status<cr>", { desc = "Git status", noremap = true, silent = true })
+u.map("n", "<leader>gss", ":Git status<cr>", { desc = "Git status", noremap = true, silent = true })
 -- branches
 u.map("n", "<leader>gB", require("telescope.builtin").git_branches,
   { desc = "Git branches", noremap = true, silent = true })
@@ -129,5 +130,8 @@ u.map("n", "<leader>gbb", require("telescope.builtin").git_branches,
 u.map("n", "<leader>gnb", ":Git cob<cr>",
   { desc = "Git new branch", noremap = true, silent = true })
 -- browser
-u.map("n", "<leader>go", "<cmd>silent !gh browse<CR>", { desc = "Git status", noremap = true, silent = true })
-u.map("n", "<leader>gO", "<cmd>silent !gh browse<CR>", { desc = "Git status", noremap = true, silent = true })
+u.map("n", "<leader>gO", "<cmd>silent !gh browse<CR>",
+  { desc = "Open Github Repository in Browser", noremap = true, silent = true })
+u.map("n", "<leader>gopr", "<cmd>silent !gh pr view --web<CR>",
+  { desc = "Open Pull Request in Browser", noremap = true, silent = true })
+u.map("n", "<leader>goo", "<cmd>silent !gh browse<CR>", { desc = "Git status", noremap = true, silent = true })
