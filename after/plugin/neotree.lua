@@ -3,10 +3,7 @@
 -- ==============================================================================================
 local u = require('utils')
 local ok, neo_tree = pcall(require, "neo-tree")
-if not ok then
-	u.warn("failed to configure plugin: neo-tree")
-	return
-end
+if not ok then return end
 
 neo_tree.setup({
 	close_if_last_window = true, -- Close Neo-tree if it is the last window left in the tab

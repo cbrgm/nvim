@@ -3,10 +3,7 @@
 -- ==============================================================================================
 local u = require('utils')
 local cmp_ok, cmp = pcall(require, "cmp")
-if not cmp_ok then
-	u.warn("failed to configure plugin: cmp")
-	return
-end
+if not cmp_ok then return end
 
 local luasnip_ok, luasnip = pcall(require, "luasnip")
 if not luasnip_ok then

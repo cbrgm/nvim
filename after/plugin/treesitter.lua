@@ -1,12 +1,8 @@
 -- ==============================================================================================
 -- PLUGIN: TREESITTER
 -- ==============================================================================================
-local u = require('utils')
 local ok, ts = pcall(require, "nvim-treesitter.configs")
-if not ok then
-	u.warn("failed to configure plugin: indent_blankline")
-	return
-end
+if not ok then return end
 
 local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
 -- Supported languages, add more here...

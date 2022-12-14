@@ -3,10 +3,7 @@
 -- ==============================================================================================
 local u = require('utils')
 local ok, harpoon = pcall(require, "harpoon")
-if not ok then
-	u.warn("failed to configure plugin: harpoon")
-	return
-end
+if not ok then return end
 
 local harpoon_mark = require("harpoon.mark")
 local harpoon_ui = require("harpoon.ui")

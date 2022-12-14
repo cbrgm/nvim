@@ -3,10 +3,7 @@
 -- ==============================================================================================
 local u = require('utils')
 local ok, telescope = pcall(require, "telescope")
-if not ok then
-	u.warn("failed to configure plugin: telescope")
-	return
-end
+if not ok then return end
 
 telescope.setup {
 	extensions = {

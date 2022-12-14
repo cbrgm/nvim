@@ -3,17 +3,11 @@
 -- ==============================================================================================
 local u = require('utils')
 local gitsigns_ok, gitsigns = pcall(require, "gitsigns")
-if not gitsigns_ok then
-  u.warn("failed to configure plugin: gitsigns")
-  return
-end
+if not gitsigns_ok then return end
 
 
 local telescope_ok, _ = pcall(require, "telescope")
-if not telescope_ok then
-  u.warn("failed to configure plugin: gitsigns")
-  return
-end
+if not telescope_ok then return end
 
 gitsigns.setup {
   keymaps = {

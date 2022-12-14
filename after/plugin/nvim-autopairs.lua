@@ -1,12 +1,8 @@
 -- ==============================================================================================
 -- PLUGIN: NVIM-AUTOPAIRS
 -- ==============================================================================================
-local u = require('utils')
 local ok, nvim_autopairs = pcall(require, "nvim-autopairs")
-if not ok then
-	u.warn("failed to configure plugin: nvim-autopairs")
-	return
-end
+if not ok then return end
 
 nvim_autopairs.setup {
 	enable_check_bracket_line = false, -- Don't add pairs if it already has a close pair in the same line

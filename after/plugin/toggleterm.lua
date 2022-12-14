@@ -3,10 +3,7 @@
 -- ==============================================================================================
 local u = require('utils')
 local ok, toggleterm = pcall(require, "toggleterm")
-if not ok then
-	u.warn("failed to configure plugin: toggleterm")
-	return
-end
+if not ok then return end
 
 toggleterm.setup({
 	-- size can be a number or function which is passed the current terminal
