@@ -1,7 +1,6 @@
 -- ==============================================================================================
 -- PLUGIN: INDENT_BLANKLINE
 -- ==============================================================================================
-local u = require('utils')
 local ok, indent_blankline = pcall(require, "indent_blankline")
 if not ok then return end
 

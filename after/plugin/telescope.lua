@@ -2,8 +2,11 @@
 -- PLUGIN: TELESCOPE
 -- ==============================================================================================
 local u = require('utils')
-local ok, telescope = pcall(require, "telescope")
-if not ok then return end
+local telescope_ok, telescope = pcall(require, "telescope")
+if not telescope_ok then return end
+
+local trouble_ok, trouble = pcall(require, "trouble.providers.telescope")
+if not trouble_ok then return end
 
 telescope.setup {
 	extensions = {
@@ -16,7 +19,6 @@ telescope.setup {
 				i = {
 					["<c-n>"] = require("telescope").extensions.file_browser.actions.create,
 					["<c-r>"] = require("telescope").extensions.file_browser.actions.rename,
-					-- ["<c-h>"] = actions.which_key,
 					["<c-h>"] = require("telescope").extensions.file_browser.toggle_hidden,
 					["<c-x>"] = require("telescope").extensions.file_browser.remove,
 					["<c-p>"] = require("telescope").extensions.file_browser.move,
@@ -92,7 +94,8 @@ telescope.setup {
 				["<cr>"] = require("telescope.actions").select_default,
 				["<c-v>"] = require("telescope.actions").select_vertical,
 				["<c-s>"] = require("telescope.actions").select_horizontal,
-				["<c-t>"] = require("telescope.actions").select_tab,
+				["<c-t>"] = trouble.open_with_trouble,
+				-- ["<c-t>"] = require("telescope.actions").select_tab,
 				["<c-p>"] = require("telescope.actions.layout").toggle_preview,
 				["<c-o>"] = require("telescope.actions.layout").toggle_mirror,
 				["<c-h>"] = require("telescope.actions").which_key,

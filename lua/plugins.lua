@@ -59,4 +59,10 @@ return function(use)
   -- Which Key (keystroke highlights)
   use 'folke/which-key.nvim'
 
+  -- better diagnostics
+  use {
+    "folke/trouble.nvim",
+    requires = "kyazdani42/nvim-web-devicons"
+  }
+
 end

@@ -12,7 +12,7 @@ u.map({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 -- speedy mode
 u.map({ "v", "n" }, "<S-j>", "5j")
 u.map({ "v", "n" }, "<S-k>", "5k")
-
+-- Easier ESC
 u.map({ 'i', 'v' }, "<C-c>", "<esc>")
 u.map("n", "<C-c>", ":nohlsearch<cr><esc>")
 -- Remap for dealing with word wrap
@@ -44,9 +44,9 @@ u.map("n", "[T", ":tabfirst<CR>", { desc = "First Tab" })
 u.map("n", "]T", ":tablast<CR>", { desc = "Last Tab" })
 u.map("n", "<C-X>", "<cmd>%bd|e#|bd#<cr>", { desc = "Close all but the current buffer" })
 u.map("n", "<C-x>", "<cmd>bd!<cr>", { desc = "Close all but the current buffer" })
-
--- u.map('n', '<leader>e', vim.diagnostic.open_float)
-u.map('n', '<leader>tc', vim.diagnostic.setloclist)
+-- diagnostics
+u.map('n', '<leader>tl', vim.diagnostic.setloclist)
+u.map('n', '<leader>tq', vim.diagnostic.setqflist)
 
 -- name = "Tmux",
 -- 				h = { "<cmd>silent !tmux splitw <cr>", "Tmux Vertical Pane" },

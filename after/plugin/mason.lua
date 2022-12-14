@@ -138,7 +138,7 @@ local on_attach = function(client, bufnr)
 	u.buf_map(bufnr, 'n', ']d', ':LspDiagNext<CR>')
 	--- quickfix
 	u.buf_command(bufnr, 'LspDiagQuickfix', vim.diagnostic.setqflist)
-	u.buf_map(bufnr, 'n', '<leader>tq', ':LspDiagQuickfix<CR>')
+	-- u.buf_map(bufnr, 'n', '<leader>tq', ':LspDiagQuickfix<CR>')
 
 	u.buf_map(bufnr, 'n', '<leader>ds', require('telescope.builtin').lsp_document_symbols, { desc = 'Document Symbols' })
 	u.buf_map(bufnr, 'n', '<leader>ws', require('telescope.builtin').lsp_dynamic_workspace_symbols,
