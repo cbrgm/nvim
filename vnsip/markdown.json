@@ -1,0 +1,65 @@
+{
+  "date": {
+    "prefix": "date",
+    "body": [
+      "${VIM:strftime('%Y-%m-%d')}"
+    ],
+    "description": "Add current date, useful for frontmatter"
+  },
+   "Links": {
+    "prefix": ["l", "link"],
+    "body": ["[${1}](${2}) ${0}"],
+    "description": "Add links"
+  },
+  "URLS": {
+    "prefix": ["u", "url"],
+    "body": ["<${1}> ${0}"],
+    "description": "Add urls"
+  },
+  "Images": {
+    "prefix": "img",
+    "body": ["![${1}](${2}) ${0}"],
+    "description": "Add images"
+  },
+  "architecture decision records": {
+    "prefix": "adr",
+    "body": [
+      "# ${1:Title}",
+      "",
+      "Date: ${VIM:strftime('%Y-%m-%d')}, Author: Christian Bargmann ([@cbrgm <chris@cbrgm.net>](mailto:chris@cbrgm.net))",
+      "",
+      "## Status",
+      "",
+      "- [x] - Proposed",
+      "- [ ] - Accepted",
+      "- [ ] - Rejected",
+      "- [ ] - Deprecated",
+      "- [ ] - Superseded",
+      "",
+      "## Context",
+      "",
+      "${2:What is the issue that we're seeing that is motivating this decision or change?}",
+      "",
+      "## Decision",
+      "",
+      "${3:What is the change that we're proposing and/or doing?}",
+      "",
+      "## Consequences",
+      "",
+      "${4:What becomes easier or more difficult to do because of this change?}",
+      ""
+    ]
+  },
+  "hugo blog post": {
+    "prefix": "blogp",
+    "body": [
+	"+++",
+	"author = \"Christian Bargmann\"",
+	"title = \"${1:Title}\"",
+	"date = \"${VIM:strftime('%Y-%m-%d')}\"",
+	"tags = [ \"${2:Tag1}\", \"${3:Tag2}\",\"${4:Tag3}\" ]",
+	"draft = true",
+	"+++"
+    ]
+  }
+}
