@@ -53,6 +53,7 @@ trouble.setup({
 	use_diagnostic_signs = false -- enabling this will use the signs defined in your lsp client
 })
 
+-- mappings
 u.map("n", "<leader>tx", "<cmd>TroubleToggle<cr>",
 	{ silent = true, noremap = true }
 )

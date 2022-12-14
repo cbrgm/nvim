@@ -108,7 +108,7 @@ u.map("n", "<leader>gaa", ":Git add --all<cr>", { desc = "Git Add (all)", norema
 u.map("n", "<leader>gaf", ":Git add :%<cr>", { desc = "Git Add File", noremap = true, silent = true })
 -- git: commit
 u.map("n", "<leader>gC", ":Git commit --verbose --all<cr>", { desc = "Git commit all", noremap = true, silent = true })
-u.map("n", "<leader>gcc", ":git commit --verbose<cr>", { desc = "Git Commit", noremap = true, silent = true })
+u.map("n", "<leader>gcc", ":Git commit --verbose<cr>", { desc = "Git Commit", noremap = true, silent = true })
 u.map("n", "<leader>gcA", ":Git commit --verbose --amend<cr>",
   { desc = "Git commit (amend)", noremap = true, silent = true })
 u.map("n", "<leader>gca", ":Git commit --verbose --all<cr>", { desc = "Git Commit (all)", noremap = true, silent = true })
