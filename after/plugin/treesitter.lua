@@ -47,8 +47,8 @@ ts.setup {
 				["ic"] = "@conditional.inner",
 				["al"] = "@loop.outer",
 				["il"] = "@loop.inner",
-				["ab"] = "@block.outer",
-				["ib"] = "@block.inner",
+				-- ["ab"] = "@block.outer",
+				-- ["ib"] = "@block.inner",
 			},
 			-- You can choose the select mode (default is charwise 'v')
 			selection_modes = {
@@ -62,7 +62,7 @@ ts.setup {
 			-- whitespace has priority in order to act similarly to eg the built-in
 
 			-- `ap`.
-			include_surrounding_whitespace = false,
+			include_surrounding_whitespace = true,
 		},
 		move = {
 			enable = true,

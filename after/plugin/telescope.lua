@@ -139,7 +139,12 @@ telescope.setup {
 pcall(require('telescope').load_extension, 'file_browser')
 
 -- the powersearch key
-u.nmap("<C-f>", "<cmd>Telescope<cr>")
+
+local search = function()
+	local opt = require('telescope.themes').get_dropdown({ height = 10, previewer = false })
+	require('telescope.builtin').current_buffer_fuzzy_find(opt)
+end
+u.nmap("<C-f>", search)
 
 u.map('n', '<leader>sr', require('telescope.builtin').oldfiles, { desc = 'Find recently opened files' })
 u.map('n', '<leader>bb', require('telescope.builtin').buffers, { desc = 'Find existing buffers' })
