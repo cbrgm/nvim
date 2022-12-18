@@ -42,11 +42,13 @@ u.map("n", "[t", ":tabprevious<CR>", { desc = "Previous Tab" })
 u.map("n", "]t", ":tabnext<CR>", { desc = "Next Tab" })
 u.map("n", "[T", ":tabfirst<CR>", { desc = "First Tab" })
 u.map("n", "]T", ":tablast<CR>", { desc = "Last Tab" })
-u.map("n", "<C-X>", "<cmd>%bd|e#|bd#<cr>", { desc = "Close all but the current buffer" })
-u.map("n", "<C-x>", "<cmd>bd!<cr>", { desc = "Close all but the current buffer" })
+u.map("n", "bD", "<cmd>%bd|e#|bd#<cr>", { desc = "Close all but the current buffer" })
+u.map("n", "<S-X>", "<cmd>bd!<cr>", { desc = "Close all but the current buffer" })
 -- diagnostics
 u.map('n', '<leader>tl', vim.diagnostic.setloclist)
 u.map('n', '<leader>tq', vim.diagnostic.setqflist)
+-- search
+u.map('n', '<C-f>', "<cmd>silent !tmux neww tmux-sessionizer<cr>")
 
 -- name = "Tmux",
 -- 				h = { "<cmd>silent !tmux splitw <cr>", "Tmux Vertical Pane" },

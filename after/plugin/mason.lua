@@ -65,7 +65,7 @@ local on_attach = function(client, bufnr)
 			callback = function()
 				vim.lsp.buf.format({})
 			end,
-			buffer = 0,
+			buffer = bufnr,
 		})
 	end
 
@@ -80,11 +80,11 @@ local on_attach = function(client, bufnr)
 
 	-- show declaration of current symbol
 	if capabilities.declarationProvider then
-		u.buf_command(bufnr, 'LspDef', function()
+		u.buf_command(bufnr, 'LspDec', function()
 			vim.lsp.buf.declaration()
 		end)
 
-		u.buf_map(bufnr, 'n', 'gD', '<cmd>LspDef<CR>')
+		u.buf_map(bufnr, 'n', 'gD', '<cmd>LspDec<CR>')
 	end
 
 	-- show implementation fo current symbol

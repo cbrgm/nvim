@@ -140,19 +140,15 @@ pcall(require('telescope').load_extension, 'file_browser')
 
 -- the powersearch key
 
+u.map('n', '<leader>sr', require('telescope.builtin').oldfiles, { desc = 'Find recently opened files' })
+u.map('n', '<leader>bb', require('telescope.builtin').buffers, { desc = 'Find existing buffers' })
+
 local search = function()
 	local opt = require('telescope.themes').get_dropdown({ height = 10, previewer = false })
 	require('telescope.builtin').current_buffer_fuzzy_find(opt)
 end
-u.nmap("<C-f>", search)
 
-u.map('n', '<leader>sr', require('telescope.builtin').oldfiles, { desc = 'Find recently opened files' })
-u.map('n', '<leader>bb', require('telescope.builtin').buffers, { desc = 'Find existing buffers' })
-u.map('n', '<leader>fs', function()
-	require('telescope.builtin').current_buffer_fuzzy_find(require('telescope.themes').get_ivy {
-		previewer = false,
-	})
-end, { desc = 'Fuzzily search in current buffer' })
+u.map('n', '<leader>fs', search, { desc = 'Fuzzily search in current buffer' })
 u.map('n', '<leader>ff', require('telescope.builtin').git_files, { desc = 'Search Files' })
 u.map('n', '<leader>sf', function() require('telescope.builtin').find_files({ hidden = true }) end,
 	{ desc = 'Search Files' })

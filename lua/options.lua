@@ -10,7 +10,7 @@ vim.o.hlsearch = false
 -- Make line numbers default
 vim.wo.number = true
 -- Minimal number of screen lines to keep above and below the cursor
-vim.o.scrolloff = 3
+vim.o.scrolloff = 8
 -- The minimal number of columns to scroll horizontally
 vim.o.sidescrolloff = 5
 -- Enable mouse mode
