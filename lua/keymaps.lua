@@ -8,6 +8,8 @@ vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 -- Keymaps for better default experience
 u.map({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
+u.map("n", "<leader>bD", "<cmd>%bd|e#|bd#<cr>", { desc = "Close all but the current buffer" })
+u.map("n", "<S-X>", "<cmd>bd!<cr>", { desc = "Close buffer" })
 -- greatest remap ever
 -- speedy mode
 u.map({ "v", "n" }, "<S-j>", "5j")
@@ -22,8 +24,8 @@ u.map('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 u.map("n", "<C-s>", ":w<cr>", { noremap = true })
 -- fix the remove linebreak key combo e.g. shift + J -> strg + J
 u.map("v", "<C-j>", "J")
-u.map("n", "<S-L>", ":bnext<cr>", { noremap = true })
-u.map("n", "<S-H>", ":bprevious<cr>", { noremap = true })
+-- u.map("n", "<S-L>", ":bnext<cr>", { noremap = true })
+-- u.map("n", "<S-H>", ":bprevious<cr>", { noremap = true })
 -- With this you can use > < multiple time for changing indent when you visual selected text.
 u.map("v", "<", "<gv")
 u.map("v", ">", ">gv")
@@ -42,8 +44,6 @@ u.map("n", "[t", ":tabprevious<CR>", { desc = "Previous Tab" })
 u.map("n", "]t", ":tabnext<CR>", { desc = "Next Tab" })
 u.map("n", "[T", ":tabfirst<CR>", { desc = "First Tab" })
 u.map("n", "]T", ":tablast<CR>", { desc = "Last Tab" })
-u.map("n", "bD", "<cmd>%bd|e#|bd#<cr>", { desc = "Close all but the current buffer" })
-u.map("n", "<S-X>", "<cmd>bd!<cr>", { desc = "Close all but the current buffer" })
 -- diagnostics
 u.map('n', '<leader>tl', vim.diagnostic.setloclist)
 u.map('n', '<leader>tq', vim.diagnostic.setqflist)
