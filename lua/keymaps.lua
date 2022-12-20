@@ -47,8 +47,8 @@ u.map("n", "]t", ":tabnext<CR>", { desc = "Next Tab" })
 u.map("n", "[T", ":tabfirst<CR>", { desc = "First Tab" })
 u.map("n", "]T", ":tablast<CR>", { desc = "Last Tab" })
 -- diagnostics
-u.map('n', '<leader>tl', vim.diagnostic.setloclist)
-u.map('n', '<leader>tq', vim.diagnostic.setqflist)
+u.map('n', '<leader>tl', vim.diagnostic.setloclist, { desc = "Toggle LocList" })
+u.map('n', '<leader>tq', vim.diagnostic.setqflist, { desc = "Toggle QuickFix" })
 -- search
 u.map('n', '<C-f>', "<cmd>silent !tmux neww tmux-sessionizer<cr>")
 
