@@ -19,12 +19,12 @@ harpoon.setup({
 
 u.map("n", "<leader><leader>", function() harpoon_mark.add_file() end)
 u.map("n", "<leader>e", function() harpoon_ui.toggle_quick_menu() end)
-u.map("n", "<S-L>", function()
-	harpoon_ui.nav_next()
-end, { noremap = true })
-u.map("n", "<S-H>", function()
-	harpoon_ui.nav_prev()
-end, { noremap = true })
+-- u.map("n", "<S-L>", function()
+-- 	harpoon_ui.nav_next()
+-- end, { noremap = true })
+-- u.map("n", "<S-H>", function()
+-- 	harpoon_ui.nav_prev()
+-- end, { noremap = true })
 
 -- quick access
 u.map("n", "<C-h>", function() harpoon_ui.nav_file(1) end)

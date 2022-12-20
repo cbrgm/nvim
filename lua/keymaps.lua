@@ -14,6 +14,8 @@ u.map("n", "<S-X>", "<cmd>bd!<cr>", { desc = "Close buffer" })
 -- speedy mode
 u.map({ "v", "n" }, "<S-j>", "5j")
 u.map({ "v", "n" }, "<S-k>", "5k")
+u.map("n", "<S-L>", ":bnext<cr>")
+u.map("n", "<S-H>", ":bprevious<cr>")
 -- Easier ESC
 u.map({ 'i', 'v' }, "<C-c>", "<esc>")
 u.map("n", "<C-c>", ":nohlsearch<cr><esc>")
