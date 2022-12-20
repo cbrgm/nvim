@@ -9,9 +9,9 @@ toggleterm.setup({
 	-- size can be a number or function which is passed the current terminal
 	size = function(term)
 		if term.direction == "horizontal" then
-			return 20
+			return vim.o.lines / 2
 		elseif term.direction == "vertical" then
-			return vim.o.columns * 1
+			return vim.o.columns * 0.5
 		end
 	end,
 	open_mapping = "<C-n>",
@@ -23,7 +23,7 @@ toggleterm.setup({
 	insert_mappings = true, -- whether or not the open mapping applies in insert jode
 	persist_mode = false,
 	persist_size = true,
-	direction = "vertical", -- 'vertical' | 'horizontal' | 'window' | 'float',
+	direction = "horizontal", -- 'vertical' | 'horizontal' | 'window' | 'float',
 	close_on_exit = true, -- close the terminal window when the process exits
 	shell = vim.o.shell, -- change the default shell
 	-- This field is only relevant if direction is set to 'float'
