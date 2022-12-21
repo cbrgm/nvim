@@ -43,6 +43,7 @@ return function(use)
       'nvim-telescope/telescope-file-browser.nvim'
     }
   }
+  use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make', cond = vim.fn.executable 'make' == 1 }
   use { "akinsho/toggleterm.nvim", tag = '*' }
   -- Filetree
   use {
