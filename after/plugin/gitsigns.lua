@@ -93,9 +93,9 @@ u.map("n", "<leader>htd", gitsigns.toggle_deleted, { desc = "Toggle deleted", no
 -- git mappings
 u.map("n", "<leader>GG", ":Git<cr>", { desc = "Git Status", noremap = true, silent = true })
 u.map("n", "<leader>GS", ":Git<cr>", { desc = "Git Status", noremap = true, silent = true })
-u.map("n", "<leader>GA", ":Git add<cr>", { desc = "Git Add", noremap = true, silent = true })
-u.map("n", "<leader>GC", ":Git commit<cr>", { desc = "Git Commit", noremap = true, silent = true })
-u.map("n", "<leader>GF", ":Git fetch<cr>", { desc = "Git Fetch", noremap = true, silent = true })
+u.map("n", "<leader>GA", ":Git add --all<cr>", { desc = "Git Add", noremap = true, silent = true })
+u.map("n", "<leader>GC", ":Git commit --verbose --all<cr>", { desc = "Git Commit", noremap = true, silent = true })
+u.map("n", "<leader>GF", ":Git fetch -p<cr>", { desc = "Git Fetch", noremap = true, silent = true })
 u.map("n", "<leader>GL", ":Git log<cr>", { desc = "Git Log", noremap = true, silent = true })
 u.map("n", "<leader>GPL", ":Git pull<cr>", { desc = "Git Pull", noremap = true, silent = true })
 u.map("n", "<leader>GPP", ":Git push<cr>", { desc = "Git Push", noremap = true, silent = true })
@@ -119,7 +119,6 @@ u.map("n", "<leader>gpp", ":Git push<cr>", { desc = "Git Push", noremap = true, 
 u.map("n", "<leader>gpl", ":Git pull<cr>", { desc = "Git Pull", noremap = true, silent = true })
 -- git: status
 u.map("n", "<leader>gs", ":Git status<cr>", { desc = "Git Status", noremap = true, silent = true })
-u.map("n", "<leader>gss", ":Git status<cr>", { desc = "Git Status", noremap = true, silent = true })
 -- git: branches
 local create_new_branch = function()
   local input = vim.fn.input('Enter branch name: ')
