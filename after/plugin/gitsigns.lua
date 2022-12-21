@@ -119,6 +119,7 @@ u.map("n", "<leader>gpp", ":Git push<cr>", { desc = "Git Push", noremap = true, 
 u.map("n", "<leader>gpl", ":Git pull<cr>", { desc = "Git Pull", noremap = true, silent = true })
 -- git: status
 u.map("n", "<leader>gs", ":Git status<cr>", { desc = "Git Status", noremap = true, silent = true })
+u.map("n", "<leader>gss", ":Git status<cr>", { desc = "Git Status", noremap = true, silent = true })
 -- git: branches
 local create_new_branch = function()
   local input = vim.fn.input('Enter branch name: ')

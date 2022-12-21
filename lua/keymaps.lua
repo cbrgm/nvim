@@ -51,7 +51,6 @@ u.map('n', '<leader>tl', vim.diagnostic.setloclist, { desc = "Toggle LocList" })
 u.map('n', '<leader>tq', vim.diagnostic.setqflist, { desc = "Toggle QuickFix" })
 -- search
 u.map('n', '<C-f>', "<cmd>silent !tmux neww tmux-sessionizer<cr>")
-
 -- name = "Tmux",
 -- 				h = { "<cmd>silent !tmux splitw <cr>", "Tmux Vertical Pane" },
 -- 				v = { "<cmd>silent !tmux splitw -hf<cr>", "Tmux Horizontal Pane" },

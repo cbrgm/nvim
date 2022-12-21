@@ -157,7 +157,7 @@ local search = function()
 	require('telescope.builtin').current_buffer_fuzzy_find(opt)
 end
 
-u.map('n', '<leader>fs', search, { desc = 'Fuzzily search in current buffer' })
+u.map('n', '<leader>fa', search, { desc = 'Fuzzily search in current buffer' })
 u.map('n', '<leader>ff', require('telescope.builtin').git_files, { desc = 'Search Files' })
 u.map('n', '<leader>sf', function() require('telescope.builtin').find_files({ hidden = true }) end,
 	{ desc = 'Search Files' })
