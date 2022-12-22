@@ -66,4 +66,10 @@ return function(use)
     requires = "kyazdani42/nvim-web-devicons"
   }
 
+  use { 'cbrgm/countdown.nvim', config = function()
+    require("countdown").setup({
+      default_minutes = 25, -- The default minutes to use
+    })
+  end }
+
 end
