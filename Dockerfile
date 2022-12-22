@@ -6,12 +6,12 @@ RUN apk --no-cache add \
     automake \
     build-base \
     cmake \
-    ninja \
     coreutils \
     curl \
     gettext-tiny-dev \
     git \
     libtool \
+    ninja \
     pkgconf \
     unzip
 

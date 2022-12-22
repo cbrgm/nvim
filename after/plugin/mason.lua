@@ -144,6 +144,9 @@ local on_attach = function(client, bufnr)
 	u.buf_map(bufnr, 'n', '<leader>ws', require('telescope.builtin').lsp_dynamic_workspace_symbols,
 		{ desc = 'Workspace Symbols' })
 
+	u.buf_map(bufnr, 'n', 'K', vim.lsp.buf.hover, { desc = 'Hover Documentation' })
+	u.buf_map(bufnr, 'n', '<C-k>', vim.lsp.buf.signature_help, { desc = 'Signature Documentation' })
+
 	-- Lesser used LSP functionality
 	u.buf_map(bufnr, 'n', '<leader>D', vim.lsp.buf.type_definition, { desc = 'Type Definition' })
 	u.buf_map(bufnr, 'n', '<leader>wa', vim.lsp.buf.add_workspace_folder, { desc = 'Workspace Add Folder' })
