@@ -31,7 +31,7 @@ font:
 Special Thanks to the following people:
 
 * [@allaman](https://github.com/allaman)
-* [@alvaroaleman](https://github.com/alvaroaleman )(for sharing your dotfiles with me :D)
-* [@jan-xyz](https://github.com/jan-xyz )(for giving me an introduction to `nvim`)
-* [@snowiow](https://github.com/snowiow ) (for making me not giving up on learning `vim`)
+* [@alvaroaleman](https://github.com/alvaroaleman) (for sharing your dotfiles with me :D)
+* [@jan-xyz](https://github.com/jan-xyz) (for giving me an introduction to `nvim`)
+* [@snowiow](https://github.com/snowiow) (for making me not giving up on learning `vim`)
 
