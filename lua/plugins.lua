@@ -28,12 +28,15 @@ return function(use)
   use 'tpope/vim-fugitive'
   use 'tpope/vim-rhubarb'
   use 'lewis6991/gitsigns.nvim'
+  use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
+
   -- Quality of live
   use 'nvim-lualine/lualine.nvim' -- Statusline
   use 'lukas-reineke/indent-blankline.nvim' -- Add indentation guides even on blank lines
   use 'windwp/nvim-autopairs'
   use 'numToStr/Comment.nvim'
   use 'tpope/vim-sleuth'
+  use 'tpope/vim-eunuch'
   -- Fuzzy Finder (files, lsp, etc)
   use {
     'nvim-telescope/telescope.nvim',
@@ -59,19 +62,10 @@ return function(use)
   use 'ThePrimeagen/harpoon'
   -- Which Key (keystroke highlights)
   use 'folke/which-key.nvim'
-
   -- better diagnostics
   use {
     "folke/trouble.nvim",
     requires = "kyazdani42/nvim-web-devicons"
   }
-
-  use { 'cbrgm/countdown.nvim', config = function()
-    require("countdown").setup({
-      default_minutes = 25, -- The default minutes to use
-    })
-  end }
-
-  use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
 
 end

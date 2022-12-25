@@ -5,6 +5,8 @@ local u = require('utils')
 local gitsigns_ok, gitsigns = pcall(require, "gitsigns")
 if not gitsigns_ok then return end
 
+local diffview_ok, _ = pcall(require, "diffview")
+if not diffview_ok then return end
 
 local telescope_ok, _ = pcall(require, "telescope")
 if not telescope_ok then return end
@@ -74,6 +76,7 @@ gitsigns.setup {
 -- Move to hunks
 u.map("n", "]c", gitsigns.next_hunk, { desc = "Next Hunk", noremap = true, silent = true })
 u.map("n", "[c", gitsigns.next_hunk, { desc = "Previous Hunk", noremap = true, silent = true })
+
 -- Hunk options
 u.map("n", "<leader>hs", gitsigns.stage_hunk, { desc = "Stage hunk", noremap = true, silent = true })
 u.map("n", "<leader>hS", gitsigns.stage_buffer, { desc = "Stage Buffer", noremap = true, silent = true })
@@ -110,20 +113,25 @@ u.map("n", "<leader>gD", ":DiffviewOpen origin/main...HEAD<CR>",
 u.map("n", "<leader>gA", ":Git add --all<cr>", { desc = "Git Add (all)", noremap = true, silent = true })
 u.map("n", "<leader>gaa", ":Git add --all<cr>", { desc = "Git Add (all)", noremap = true, silent = true })
 u.map("n", "<leader>gaf", ":Git add :%<cr>", { desc = "Git Add File", noremap = true, silent = true })
+
 -- git: commit
 u.map("n", "<leader>gC", ":Git commit --verbose --all<cr>", { desc = "Git commit all", noremap = true, silent = true })
 u.map("n", "<leader>gcc", ":Git commit --verbose<cr>", { desc = "Git Commit", noremap = true, silent = true })
 u.map("n", "<leader>gcA", ":Git commit --verbose --amend<cr>",
   { desc = "Git commit (amend)", noremap = true, silent = true })
+
 u.map("n", "<leader>gca", ":Git commit --verbose --all<cr>", { desc = "Git Commit (all)", noremap = true, silent = true })
 u.map("n", "<leader>gl", ":Gclog!<cr>", { desc = "Git Log", noremap = true, silent = true })
+
 -- git: push pull
 u.map("n", "<leader>gpa", ":Git push --all<cr>", { desc = "Git Push (all)", noremap = true, silent = true })
 u.map("n", "<leader>gpp", ":Git push<cr>", { desc = "Git Push", noremap = true, silent = true })
 u.map("n", "<leader>gpl", ":Git pull<cr>", { desc = "Git Pull", noremap = true, silent = true })
+
 -- git: status
 u.map("n", "<leader>gs", ":Git status<cr>", { desc = "Git Status", noremap = true, silent = true })
 u.map("n", "<leader>gss", ":Git status<cr>", { desc = "Git Status", noremap = true, silent = true })
+
 -- git: branches
 local create_new_branch = function()
   local input = vim.fn.input('Enter branch name: ')
@@ -137,6 +145,7 @@ u.map("n", "<leader>gbb", require("telescope.builtin").git_branches,
   { desc = "Git Branches", noremap = true, silent = true })
 u.map("n", "<leader>gbn", create_new_branch,
   { desc = "Git new Branch", noremap = true, silent = true })
+
 -- Github in browser
 u.map("n", "<leader>gO", ":GBrowse<CR>",
   { desc = "Open GitHub Repository In Browser", noremap = true, silent = true })
