@@ -158,6 +158,7 @@ local search = function()
 end
 
 u.map('n', '<leader>fa', search, { desc = 'Fuzzily search in current buffer' })
+u.map("n", "<leader>fb", ":Telescope file_browser<CR>", { noremap = true, desc = "Open file browser" })
 u.map('n', '<leader>ff', require('telescope.builtin').git_files, { desc = 'Search Files' })
 u.map('n', '<leader>sf', function() require('telescope.builtin').find_files({ hidden = true }) end,
 	{ desc = 'Search Files' })

@@ -36,7 +36,6 @@ return function(use)
   use 'windwp/nvim-autopairs'
   use 'numToStr/Comment.nvim'
   use 'tpope/vim-sleuth'
-  use 'tpope/vim-eunuch'
   -- Fuzzy Finder (files, lsp, etc)
   use {
     'nvim-telescope/telescope.nvim',
