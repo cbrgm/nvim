@@ -102,18 +102,16 @@ u.map("n", "<leader>GPP", ":Git push<cr>", { desc = "Git Push", noremap = true, 
 u.map("n", "<leader>GB", require("telescope.builtin").git_branches,
   { desc = "Git Branches", noremap = true, silent = true })
 
-
 -- git: add
 u.map("n", "<leader>gA", ":Git add --all<cr>", { desc = "Git Add (all)", noremap = true, silent = true })
 u.map("n", "<leader>gaa", ":Git add --all<cr>", { desc = "Git Add (all)", noremap = true, silent = true })
 u.map("n", "<leader>gaf", ":Git add :%<cr>", { desc = "Git Add File", noremap = true, silent = true })
 
 -- git: commit
-u.map("n", "<leader>gC", ":Git commit --verbose --all<cr>", { desc = "Git commit all", noremap = true, silent = true })
+u.map("n", "<leader>gC", ":Git commit --verbose --all<cr>", { desc = "Git Commit All", noremap = true, silent = true })
 u.map("n", "<leader>gcc", ":Git commit --verbose<cr>", { desc = "Git Commit", noremap = true, silent = true })
 u.map("n", "<leader>gcA", ":Git commit --verbose --amend<cr>",
-  { desc = "Git commit (amend)", noremap = true, silent = true })
-
+  { desc = "Git Commit (amend)", noremap = true, silent = true })
 u.map("n", "<leader>gca", ":Git commit --verbose --all<cr>", { desc = "Git Commit (all)", noremap = true, silent = true })
 u.map("n", "<leader>gl", ":Gclog!<cr>", { desc = "Git Log", noremap = true, silent = true })
 
@@ -142,10 +140,10 @@ u.map("n", "<leader>gbn", create_new_branch,
 
 -- Github in browser
 u.map("n", "<leader>gO", ":GBrowse<CR>",
-  { desc = "Open GitHub Repository In Browser", noremap = true, silent = true })
+  { desc = "Open in Browser", noremap = true, silent = true })
 u.map("n", "<leader>gopr", "<cmd>silent !gh pr view --web<CR>",
   { desc = "Open Pull Request In Browser", noremap = true, silent = true })
 u.map("n", "<leader>gok", '<cmd>silent !gh pr review --comment -b "LGTM! --approve"<CR>',
-  { desc = "Open Pull Request In Browser", noremap = true, silent = true })
+  { desc = "Approve Pull Request", noremap = true, silent = true })
 u.map("n", "<leader>goo", ":GBrowse<CR>",
   { desc = "Open GitHub Repository In Browser", noremap = true, silent = true })
