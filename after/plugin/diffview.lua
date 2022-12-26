@@ -21,5 +21,5 @@ end, { nargs = "*" })
 -- git: diff
 u.map("n", "<leader>gD", ":DiffviewToggle origin/main...HEAD<CR>",
 	{ desc = "Git Diff (main)", noremap = true, silent = true })
-u.map("n", "<leader>gd", ":DiffviewToggle HEAD~<CR>",
-	{ desc = "Git Diff (head~1)", noremap = true, silent = true })
+u.map("n", "<leader>gd", ":DiffviewToggle<CR>",
+	{ desc = "Git Diff", noremap = true, silent = true })
