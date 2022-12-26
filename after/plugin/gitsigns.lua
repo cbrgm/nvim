@@ -142,8 +142,8 @@ u.map("n", "<leader>gbn", create_new_branch,
 u.map("n", "<leader>gO", ":GBrowse<CR>",
   { desc = "Open in Browser", noremap = true, silent = true })
 u.map("n", "<leader>gopr", "<cmd>silent !gh pr view --web<CR>",
-  { desc = "Open Pull Request In Browser", noremap = true, silent = true })
+  { desc = "Open PR In Browser", noremap = true, silent = true })
 u.map("n", "<leader>gok", '<cmd>silent !gh pr review --comment -b "LGTM! --approve"<CR>',
   { desc = "Approve Pull Request", noremap = true, silent = true })
 u.map("n", "<leader>goo", ":GBrowse<CR>",
-  { desc = "Open GitHub Repository In Browser", noremap = true, silent = true })
+  { desc = "Open in Browser", noremap = true, silent = true })
