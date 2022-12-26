@@ -8,10 +8,6 @@ local pwd = function()
 	return vim.fn.getcwd()
 end
 
-local timer = function()
-	return require("countdown").get_time()
-end
-
 lualine.setup {
 	options = {
 		icons_enabled = false,
@@ -37,7 +33,7 @@ lualine.setup {
 		lualine_a = { "mode" },
 		lualine_b = { "branch", "diff", "diagnostics" },
 		lualine_c = { pwd, "filename" },
-		lualine_x = { timer, "encoding", "fileformat", "filetype" },
+		lualine_x = { "encoding", "fileformat", "filetype" },
 		lualine_y = { "progress" },
 		lualine_z = { "location" }
 	},
