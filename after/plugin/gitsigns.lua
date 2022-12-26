@@ -5,9 +5,6 @@ local u = require('utils')
 local gitsigns_ok, gitsigns = pcall(require, "gitsigns")
 if not gitsigns_ok then return end
 
-local diffview_ok, _ = pcall(require, "diffview")
-if not diffview_ok then return end
-
 local telescope_ok, _ = pcall(require, "telescope")
 if not telescope_ok then return end
 
@@ -105,9 +102,6 @@ u.map("n", "<leader>GPP", ":Git push<cr>", { desc = "Git Push", noremap = true, 
 u.map("n", "<leader>GB", require("telescope.builtin").git_branches,
   { desc = "Git Branches", noremap = true, silent = true })
 
--- git: diff
-u.map("n", "<leader>gD", ":DiffviewOpen origin/main...HEAD<CR>",
-  { desc = "Git Diff (main)", noremap = true, silent = true })
 
 -- git: add
 u.map("n", "<leader>gA", ":Git add --all<cr>", { desc = "Git Add (all)", noremap = true, silent = true })
