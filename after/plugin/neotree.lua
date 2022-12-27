@@ -2,10 +2,19 @@
 -- PLUGIN: NEOTREE
 -- ==============================================================================================
 local u = require('utils')
-local ok, neo_tree = pcall(require, "neo-tree")
+local ok, neotree = pcall(require, "neo-tree")
 if not ok then return end
 
-neo_tree.setup({
+neotree.setup({
+	event_handlers = {
+		{
+			event = "file_opened",
+			handler = function(file_path)
+				--auto close
+				neotree.close_all()
+			end
+		},
+	},
 	close_if_last_window = false, -- Close Neo-tree if it is the last window left in the tab
 	popup_border_style = "rounded",
 	enable_git_status = true,
@@ -72,7 +81,7 @@ neo_tree.setup({
 		},
 	},
 	window = {
-		position = "left",
+		position = "right",
 		width = 40,
 		mapping_options = {
 			noremap = true,
