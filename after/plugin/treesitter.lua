@@ -7,7 +7,7 @@ if not ok then return end
 local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
 -- Supported languages, add more here...
 local languages = { 'bash', 'c', 'cpp', 'go', 'gomod', 'lua', 'python', 'rust', 'typescript', 'tsx', 'json', 'yaml',
-	'markdown', 'markdown_inline', 'html', 'javascript', 'css', 'toml', 'help', 'hcl' }
+	'markdown', 'markdown_inline', 'html', 'javascript', 'css', 'toml', 'vim', 'help', 'hcl' }
 
 ts.setup {
 	-- Add languages to be installed here that you want installed for treesitter
