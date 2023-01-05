@@ -61,3 +61,5 @@ u.map("n", "]T", ":tablast<CR>", { desc = "Last Tab" })
 -- diagnostics
 u.map('n', '<leader>tl', vim.diagnostic.setloclist, { desc = "Toggle LocList" })
 u.map('n', '<leader>tq', vim.diagnostic.setqflist, { desc = "Toggle QuickFix" })
+
+u.cowboy()
