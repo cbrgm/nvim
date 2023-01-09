@@ -58,7 +58,7 @@ return function(use)
     }
   }
   -- Bookmarks
-  use 'ThePrimeagen/harpoon'
+  -- use 'ThePrimeagen/harpoon'
   -- Which Key (keystroke highlights)
   use 'folke/which-key.nvim'
   -- better diagnostics

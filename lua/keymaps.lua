@@ -9,10 +9,10 @@ vim.g.maplocalleader = ' '
 -- Keymaps for better default experience
 u.map({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 u.map("n", "<leader>bD", "<cmd>%bd|e#|bd#<cr>", { desc = "Close all but the current buffer" })
-u.map("n", "<S-X>", "<cmd>bd!<cr>", { desc = "Close buffer" })
+u.map("n", "<C-X>", "<cmd>bd!<cr>", { desc = "Close buffer" })
 -- greatest remap ever
-u.map("n", "<S-L>", ":bnext<cr>")
-u.map("n", "<S-H>", ":bprevious<cr>")
+u.map("n", "<C-L>", ":bnext<cr>")
+u.map("n", "<C-H>", ":bprevious<cr>")
 u.map("x", "<leader>p", "\"_dP", { desc = "Paste without buffer orverwrite" })
 u.map({ 'n', 'v' }, "<leader>d", "\"_d", { desc = "Delete without buffer orverwrite" })
 -- some centering
