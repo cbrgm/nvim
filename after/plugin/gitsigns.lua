@@ -71,24 +71,24 @@ gitsigns.setup {
 }
 
 -- Move to hunks
-u.map("n", "]c", gitsigns.next_hunk, { desc = "Next Hunk", noremap = true, silent = true })
-u.map("n", "[c", gitsigns.next_hunk, { desc = "Previous Hunk", noremap = true, silent = true })
+u.map("n", "]h", gitsigns.next_hunk, { desc = "Next Hunk", noremap = true, silent = true })
+u.map("n", "[h", gitsigns.prev_hunk, { desc = "Previous Hunk", noremap = true, silent = true })
 
 -- Hunk options
-u.map("n", "<leader>hs", gitsigns.stage_hunk, { desc = "Stage hunk", noremap = true, silent = true })
-u.map("n", "<leader>hS", gitsigns.stage_buffer, { desc = "Stage Buffer", noremap = true, silent = true })
-u.map("n", "<leader>hr", gitsigns.reset_hunk, { desc = "Reset hunk", noremap = true, silent = true })
-u.map("n", "<leader>hR", gitsigns.reset_buffer, { desc = "Reset Buffer", noremap = true, silent = true })
-u.map("n", "<leader>hu", gitsigns.undo_stage_hunk, { desc = "Undo stage hunk", noremap = true, silent = true })
-u.map("n", "<leader>hp", gitsigns.preview_hunk, { desc = "Preview Hunk", noremap = true, silent = true })
-u.map("n", "<leader>hb", gitsigns.blame_line, { desc = "Blame Hunk", noremap = true, silent = true })
-u.map("n", "<leader>htb", gitsigns.toggle_current_line_blame,
+u.map("n", "<leader>ghs", gitsigns.stage_hunk, { desc = "Stage hunk", noremap = true, silent = true })
+u.map("n", "<leader>ghS", gitsigns.stage_buffer, { desc = "Stage Buffer", noremap = true, silent = true })
+u.map("n", "<leader>ghr", gitsigns.reset_hunk, { desc = "Reset hunk", noremap = true, silent = true })
+u.map("n", "<leader>ghR", gitsigns.reset_buffer, { desc = "Reset Buffer", noremap = true, silent = true })
+u.map("n", "<leader>ghu", gitsigns.undo_stage_hunk, { desc = "Undo stage hunk", noremap = true, silent = true })
+u.map("n", "<leader>ghp", gitsigns.preview_hunk, { desc = "Preview Hunk", noremap = true, silent = true })
+u.map("n", "<leader>ghb", function() gitsigns.blame_line({ full = true }) end,
+  { desc = "Blame line", noremap = true, silent = true })
+u.map("n", "<leader>ght", gitsigns.toggle_current_line_blame,
   { desc = "Toggle current line blame", noremap = true, silent = true })
-u.map("n", "<leader>hd", gitsigns.diffthis, { desc = "Diff this", noremap = true, silent = true })
-u.map("n", "<leader>hD", function()
+u.map("n", "<leader>ghd", gitsigns.diffthis, { desc = "Diff this", noremap = true, silent = true })
+u.map("n", "<leader>ghD", function()
   gitsigns.diffthis("~")
 end, { desc = "Diff this against the last commit", noremap = true, silent = true })
-u.map("n", "<leader>htd", gitsigns.toggle_deleted, { desc = "Toggle deleted", noremap = true, silent = true })
 
 -- git mappings
 u.map("n", "<leader>GG", ":Git<cr>", { desc = "Git Status", noremap = true, silent = true })
@@ -120,10 +120,6 @@ u.map("n", "<leader>gpa", ":Git push --all<cr>", { desc = "Git Push (all)", nore
 u.map("n", "<leader>gpp", ":Git push<cr>", { desc = "Git Push", noremap = true, silent = true })
 u.map("n", "<leader>gpl", ":Git pull<cr>", { desc = "Git Pull", noremap = true, silent = true })
 
--- git: status
-u.map("n", "<leader>gs", ":Git status<cr>", { desc = "Git Status", noremap = true, silent = true })
-u.map("n", "<leader>gss", ":Git status<cr>", { desc = "Git Status", noremap = true, silent = true })
-
 -- git: branches
 local create_new_branch = function()
   local input = vim.fn.input('Enter branch name: ')
@@ -139,11 +135,5 @@ u.map("n", "<leader>gbn", create_new_branch,
   { desc = "Git new Branch", noremap = true, silent = true })
 
 -- Github in browser
-u.map("n", "<leader>gO", ":GBrowse<CR>",
-  { desc = "Open in Browser", noremap = true, silent = true })
-u.map("n", "<leader>gopr", "<cmd>silent !gh pr view --web<CR>",
-  { desc = "Open PR In Browser", noremap = true, silent = true })
-u.map("n", "<leader>gok", '<cmd>silent !gh pr review --comment -b "LGTM! --approve"<CR>',
-  { desc = "Approve Pull Request", noremap = true, silent = true })
-u.map("n", "<leader>goo", ":GBrowse<CR>",
+u.map("n", "<leader>go", ":GBrowse<CR>",
   { desc = "Open in Browser", noremap = true, silent = true })

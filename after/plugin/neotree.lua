@@ -204,5 +204,6 @@ neotree.setup({
 	}
 })
 
-u.map("n", "<leader>q", "<cmd>Neotree reveal toggle<cr>", { desc = "Toggle Neotree" })
+u.map("n", "<leader>ft", "<cmd>Neotree reveal toggle<cr>", { desc = "Toggle Neotree" })
+u.map("n", "<leader>e", "<cmd>Neotree reveal toggle<cr>", { desc = "Toggle Neotree" })
 u.map("n", "<leader>bf", "<cmd>Neotree action=focus reveal=true<cr>", { desc = "Find file in explorer" })

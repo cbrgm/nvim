@@ -12,14 +12,11 @@ autocmd('BufWritePost', {
   pattern = vim.fn.expand '$MYVIMRC',
 })
 
--- highlight on yank
-local highlight_group = augroup('YankHighlight', { clear = true })
-autocmd('TextYankPost', {
+-- Highlight on yank
+autocmd("TextYankPost", {
   callback = function()
     vim.highlight.on_yank()
   end,
-  group = highlight_group,
-  pattern = '*',
 })
 
 -- don't auto comment new line
@@ -30,30 +27,6 @@ local trim_whitespace_group = augroup("TrimWhiteSpaceGrp", { clear = true })
 autocmd("BufWritePre", {
   command = [[:%s/\s\+$//e]],
   group = trim_whitespace_group,
-})
-
--- Toggle relative line numbers in normal mode
-local numbertoggle_group = augroup("numbertoggle", { clear = true })
-autocmd({ "BufEnter", "FocusGained", "InsertLeave", "CmdlineLeave", "WinEnter" }, {
-  pattern = "*",
-  group = numbertoggle_group,
-  callback = function()
-    if vim.o.number and vim.api.nvim_get_mode().mode ~= "i" then
-      vim.opt.relativenumber = true
-    end
-  end,
-})
-
--- toggle absolute line numbers in insert mode
-autocmd({ "BufLeave", "FocusLost", "InsertEnter", "CmdlineEnter", "WinLeave" }, {
-  pattern = "*",
-  group = numbertoggle_group,
-  callback = function()
-    if vim.o.number then
-      vim.opt.relativenumber = false
-      vim.cmd "redraw"
-    end
-  end,
 })
 
 -- reload buffer automatically when file on disk changed

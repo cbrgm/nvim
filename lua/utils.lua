@@ -69,4 +69,49 @@ function M.cowboy()
   end
 end
 
+---@param silent boolean?
+---@param values? {[1]:any, [2]:any}
+function M.toggle(option, silent, values)
+  if values then
+    if vim.opt_local[option]:get() == values[1] then
+      vim.opt_local[option] = values[2]
+    else
+      vim.opt_local[option] = values[1]
+    end
+    return vim.notify(
+      "Set " .. option .. " to " .. vim.opt_local[option]:get(),
+      vim.log.levels.INFO,
+      { title = "Option" }
+    )
+  end
+  vim.opt_local[option] = not vim.opt_local[option]:get()
+  if not silent then
+    vim.notify(
+      (vim.opt_local[option]:get() and "Enabled" or "Disabled") .. " " .. option,
+      vim.log.levels.INFO,
+      { title = "Option" }
+    )
+  end
+end
+
+local enabled = true
+function M.toggle_diagnostics()
+  enabled = not enabled
+  if enabled then
+    vim.diagnostic.enable()
+    vim.notify("Enabled diagnostics", vim.log.levels.INFO, { title = "Diagnostics" })
+  else
+    vim.diagnostic.disable()
+    vim.notify("Disabled diagnostics", vim.log.levels.INFO, { title = "Diagnostics" })
+  end
+end
+
+function M.diagnostic_goto(next, severity)
+  local go = next and vim.diagnostic.goto_next or vim.diagnostic.goto_prev
+  severity = severity and vim.diagnostic.severity[severity] or nil
+  return function()
+    go({ severity = severity })
+  end
+end
+
 return M

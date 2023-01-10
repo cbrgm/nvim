@@ -10,23 +10,6 @@ if not trouble_ok then return end
 
 telescope.setup {
 	extensions = {
-		file_browser = {
-			hijack_netrw = true,
-			hidden = true,
-			theme = "ivy",
-			hlsearch = true,
-			mappings = {
-				i = {
-					["<c-n>"] = require("telescope").extensions.file_browser.actions.create,
-					["<c-r>"] = require("telescope").extensions.file_browser.actions.rename,
-					["<c-h>"] = require("telescope").extensions.file_browser.toggle_hidden,
-					["<c-x>"] = require("telescope").extensions.file_browser.remove,
-					["<c-p>"] = require("telescope").extensions.file_browser.move,
-					["<c-y>"] = require("telescope").extensions.file_browser.copy,
-					["<c-a>"] = require("telescope").extensions.file_browser.select_all,
-				},
-			},
-		},
 		fzf = {
 			fuzzy = true, -- false will only do exact matching
 			override_generic_sorter = true, -- override the generic sorter
@@ -142,29 +125,34 @@ telescope.setup {
 		set_env = { ["COLORTERM"] = "truecolor" }, -- default = nil,
 	},
 }
--- Enable telescope file_browser, if installed
-pcall(require('telescope').load_extension, 'file_browser')
 -- Enable telescope fzf native, if installed
 pcall(require('telescope').load_extension, 'fzf')
 
 -- the powersearch key
-
-u.map('n', '<leader>sr', require('telescope.builtin').oldfiles, { desc = 'Find recently opened files' })
-u.map('n', '<leader>bb', require('telescope.builtin').buffers, { desc = 'Find existing buffers' })
 
 local search = function()
 	local opt = require('telescope.themes').get_dropdown({ height = 10, previewer = false })
 	require('telescope.builtin').current_buffer_fuzzy_find(opt)
 end
 
+
+u.map('n', "<leader>bb", "<cmd>Telescope buffers show_all_buffers=true<cr>", { desc = "Switch Buffer" })
 u.map('n', '<space>/', search, { desc = 'Fuzzily search in current buffer' })
-u.map("n", "<leader>fb", ":Telescope file_browser<CR>", { noremap = true, desc = "Open file browser" })
-u.map('n', '<leader>ff', require('telescope.builtin').git_files, { desc = 'Search Files' })
-u.map('n', '<leader>sf', function() require('telescope.builtin').find_files({ hidden = true }) end,
-	{ desc = 'Search Files' })
-u.map('n', '<leader>sb', require('telescope.builtin').buffers, { desc = 'Find existing buffers' })
-u.map('n', '<leader>sc', require('telescope.builtin').resume, { desc = 'Resume last search' })
-u.map('n', '<leader>sh', require('telescope.builtin').help_tags, { desc = 'Search Help' })
-u.map('n', '<leader>sw', require('telescope.builtin').grep_string, { desc = 'Search current Word' })
-u.map('n', '<leader>sg', require('telescope.builtin').live_grep, { desc = 'Search by Grep' })
-u.map('n', '<leader>sd', require('telescope.builtin').diagnostics, { desc = 'Search Diagnostics' })
+u.map('n', '<leader>ff', "<cmd>Telescope git_files<cr>", { desc = 'Search Files (Git)' })
+u.map('n', '<leader>fF', "<cmd>Telescope find_files<cr>", { desc = 'Search Files (All)' })
+u.map('n', "<leader>fr", "<cmd>Telescope oldfiles<cr>", { desc = "Recent" })
+u.map('n', "<leader>gs", "<cmd>Telescope git_status<CR>", { desc = "status" })
+u.map('n', "<leader>ha", "<cmd>Telescope autocommands<cr>", { desc = "Auto Commands" })
+u.map('n', "<leader>hc", "<cmd>Telescope commands<cr>", { desc = "Commands" })
+u.map('n', "<leader>hf", "<cmd>Telescope filetypes<cr>", { desc = "File Types" })
+u.map('n', "<leader>hh", "<cmd>Telescope help_tags<cr>", { desc = "Help Pages" })
+u.map('n', "<leader>hk", "<cmd>Telescope keymaps<cr>", { desc = "Key Maps" })
+u.map('n', "<leader>hm", "<cmd>Telescope man_pages<cr>", { desc = "Man Pages" })
+u.map('n', "<leader>ho", "<cmd>Telescope vim_options<cr>", { desc = "Options" })
+u.map('n', "<leader>hs", "<cmd>Telescope highlights<cr>", { desc = "Search Highlight Groups" })
+u.map('n', "<leader>ht", "<cmd>Telescope builtin<cr>", { desc = "Telescope" })
+u.map('n', "<leader>sb", "<cmd>Telescope current_buffer_fuzzy_find<cr>", { desc = "Buffer" })
+u.map('n', "<leader>sc", "<cmd>Telescope command_history<cr>", { desc = "Command History" })
+u.map('n', "<leader>sg", "<cmd>Telescope live_grep<cr>", { desc = "Grep" })
+u.map('n', "<leader>sm", "<cmd>Telescope marks<cr>", { desc = "Jump to Mark" })
+u.map('n', "<leader>:", "<cmd>Telescope command_history<cr>", { desc = "Command History" })

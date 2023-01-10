@@ -8,7 +8,6 @@ local lsp = vim.lsp
 local servers = { 'clangd', 'rust_analyzer', 'pyright', 'tsserver', 'sumneko_lua', 'gopls', 'terraformls', 'dockerls',
 	"bashls", "yamlls" }
 
-
 local telescope_ok, _ = pcall(require, "telescope")
 if not telescope_ok then return end
 
@@ -74,8 +73,8 @@ local on_attach = function(client, bufnr)
 		u.buf_command(bufnr, 'LspDef', function()
 			vim.lsp.buf.definition()
 		end)
-
-		u.buf_map(bufnr, 'n', 'gd', '<cmd>LspDef<CR>')
+		u.buf_map(bufnr, 'n', "gd", "<cmd>Telescope lsp_definitions<cr>", { desc = "Goto Definition" })
+		u.buf_map(bufnr, 'n', "gt", "<cmd>Telescope lsp_type_definitions<cr>", { desc = "Goto Type Definition" })
 	end
 
 	-- show declaration of current symbol
@@ -83,8 +82,7 @@ local on_attach = function(client, bufnr)
 		u.buf_command(bufnr, 'LspDec', function()
 			vim.lsp.buf.declaration()
 		end)
-
-		u.buf_map(bufnr, 'n', 'gD', '<cmd>LspDec<CR>')
+		u.buf_map(bufnr, 'n', "gD", "<cmd>Telescope lsp_declarations<cr>", { desc = "Goto Declaration" })
 	end
 
 	-- show implementation fo current symbol
@@ -92,8 +90,7 @@ local on_attach = function(client, bufnr)
 		u.buf_command(bufnr, 'LspImplementations', function()
 			vim.lsp.buf.implementation()
 		end)
-
-		u.buf_map(bufnr, 'n', 'gi', '<cmd>LspImplementations<CR>')
+		u.buf_map(bufnr, 'n', "gI", "<cmd>Telescope lsp_implementations<cr>", { desc = "Goto Implementation" })
 	end
 
 	-- rename current symbol
@@ -101,8 +98,7 @@ local on_attach = function(client, bufnr)
 		u.buf_command(bufnr, 'LspRename', function()
 			vim.lsp.buf.rename()
 		end)
-
-		u.buf_map(bufnr, 'n', '<leader>rn', ':LspRename<CR>')
+		u.buf_map(bufnr, 'n', '<leader>rn', ':LspRename<CR>', { desc = "Rename" })
 	end
 
 	-- show code actions available
@@ -110,8 +106,7 @@ local on_attach = function(client, bufnr)
 		u.buf_command(bufnr, 'LspAct', function()
 			vim.lsp.buf.code_action()
 		end)
-
-		u.buf_map(bufnr, 'n', '<leader>ca', '<cmd>LspAct<CR>')
+		u.buf_map(bufnr, { 'n', 'v' }, '<leader>ca', '<cmd>LspAct<CR>', { desc = "Code Action" })
 	end
 
 	-- References of current symbol
@@ -120,7 +115,7 @@ local on_attach = function(client, bufnr)
 			vim.lsp.buf.references()
 		end)
 
-		u.buf_map(bufnr, 'n', 'gr', require('telescope.builtin').lsp_references)
+		u.buf_map(bufnr, 'n', "gr", "<cmd>Telescope lsp_references<cr>", { desc = "References" })
 	end
 
 	-- show signature help
@@ -128,32 +123,18 @@ local on_attach = function(client, bufnr)
 		u.buf_command(bufnr, 'LspSignatureHelp', function()
 			vim.lsp.buf.signature_help()
 		end)
-		u.buf_map(bufnr, 'i', '<C-x><C-x>', '<cmd>LspSignatureHelp<CR>')
+		u.buf_map(bufnr, 'n', 'gK', vim.lsp.buf.signature_help, { desc = 'Signature Documentation' })
 	end
 
 	-- diagnostics
-	u.buf_command(bufnr, 'LspDiagPrev', vim.diagnostic.goto_prev)
-	u.buf_map(bufnr, 'n', '[d', ':LspDiagPrev<CR>')
-	u.buf_command(bufnr, 'LspDiagNext', vim.diagnostic.goto_next)
-	u.buf_map(bufnr, 'n', ']d', ':LspDiagNext<CR>')
-	--- quickfix
-	u.buf_command(bufnr, 'LspDiagQuickfix', vim.diagnostic.setqflist)
-	-- u.buf_map(bufnr, 'n', '<leader>tq', ':LspDiagQuickfix<CR>')
-
-	u.buf_map(bufnr, 'n', '<leader>ds', require('telescope.builtin').lsp_document_symbols, { desc = 'Document Symbols' })
-	u.buf_map(bufnr, 'n', '<leader>ws', require('telescope.builtin').lsp_dynamic_workspace_symbols,
-		{ desc = 'Workspace Symbols' })
-
+	u.buf_map(bufnr, 'n', '<leader>]d', u.diagnostic_goto(true), { desc = 'Next Diagnostic' })
+	u.buf_map(bufnr, 'n', '<leader>[d', u.diagnostic_goto(true), { desc = 'Previous Diagnostic' })
+	u.buf_map(bufnr, 'n', '<leader>]e', u.diagnostic_goto(true, "ERROR"), { desc = 'Next Error' })
+	u.buf_map(bufnr, 'n', '<leader>[e', u.diagnostic_goto(true, "ERROR"), { desc = 'Previous Error' })
+	u.buf_map(bufnr, 'n', '<leader>]w', u.diagnostic_goto(true, "WARNING"), { desc = 'Next Warning' })
+	u.buf_map(bufnr, 'n', '<leader>[w', u.diagnostic_goto(true, "WARNING"), { desc = 'Previous Warning' })
 	u.buf_map(bufnr, 'n', 'K', vim.lsp.buf.hover, { desc = 'Hover Documentation' })
-	u.buf_map(bufnr, 'n', '<C-k>', vim.lsp.buf.signature_help, { desc = 'Signature Documentation' })
-
-	-- Lesser used LSP functionality
-	u.buf_map(bufnr, 'n', '<leader>D', vim.lsp.buf.type_definition, { desc = 'Type Definition' })
-	u.buf_map(bufnr, 'n', '<leader>wa', vim.lsp.buf.add_workspace_folder, { desc = 'Workspace Add Folder' })
-	u.buf_map(bufnr, 'n', '<leader>wr', vim.lsp.buf.remove_workspace_folder, { desc = 'Workspace Remove Folder' })
-	u.buf_map(bufnr, 'n', '<leader>wl', function()
-		print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-	end, { desc = 'Workspace List Folders' })
+	u.buf_map(bufnr, 'n', "<leader>cl", "<cmd>LspInfo<cr>", { desc = "Lsp Info" })
 end
 
 -- Setup mason so it can manage external tooling
@@ -167,6 +148,7 @@ mason.setup({
 		},
 	},
 })
+
 -- Ensure the servers above are installed
 mason_lspconfig.setup {
 	ensure_installed = servers,

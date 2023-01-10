@@ -42,7 +42,6 @@ return function(use)
     branch = '0.1.x',
     requires = {
       'nvim-lua/plenary.nvim',
-      'nvim-telescope/telescope-file-browser.nvim'
     }
   }
   use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make', cond = vim.fn.executable 'make' == 1 }
