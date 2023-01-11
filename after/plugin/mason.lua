@@ -39,6 +39,14 @@ local lsp_formatting = function(bufnr)
 	})
 end
 
+local function diagnostic_goto(next, severity)
+	local go = next and vim.diagnostic.goto_next or vim.diagnostic.goto_prev
+	severity = severity and vim.diagnostic.severity[severity] or nil
+	return function()
+		go({ severity = severity })
+	end
+end
+
 local on_attach = function(client, bufnr)
 	vim.notify("connecting '" .. client.name .. "' to buffer " .. bufnr, vim.log.levels.DEBUG)
 
@@ -98,7 +106,7 @@ local on_attach = function(client, bufnr)
 		u.buf_command(bufnr, 'LspRename', function()
 			vim.lsp.buf.rename()
 		end)
-		u.buf_map(bufnr, 'n', '<leader>rn', ':LspRename<CR>', { desc = "Rename" })
+		u.buf_map(bufnr, 'n', '<leader>cr', ':LspRename<CR>', { desc = "Rename" })
 	end
 
 	-- show code actions available
@@ -127,12 +135,12 @@ local on_attach = function(client, bufnr)
 	end
 
 	-- diagnostics
-	u.buf_map(bufnr, 'n', '<leader>]d', u.diagnostic_goto(true), { desc = 'Next Diagnostic' })
-	u.buf_map(bufnr, 'n', '<leader>[d', u.diagnostic_goto(true), { desc = 'Previous Diagnostic' })
-	u.buf_map(bufnr, 'n', '<leader>]e', u.diagnostic_goto(true, "ERROR"), { desc = 'Next Error' })
-	u.buf_map(bufnr, 'n', '<leader>[e', u.diagnostic_goto(true, "ERROR"), { desc = 'Previous Error' })
-	u.buf_map(bufnr, 'n', '<leader>]w', u.diagnostic_goto(true, "WARNING"), { desc = 'Next Warning' })
-	u.buf_map(bufnr, 'n', '<leader>[w', u.diagnostic_goto(true, "WARNING"), { desc = 'Previous Warning' })
+	u.buf_map(bufnr, 'n', ']d', diagnostic_goto(true), { desc = 'Next Diagnostic' })
+	u.buf_map(bufnr, 'n', '[d', diagnostic_goto(false), { desc = 'Previous Diagnostic' })
+	u.buf_map(bufnr, 'n', ']e', diagnostic_goto(true, "ERROR"), { desc = 'Next Error' })
+	u.buf_map(bufnr, 'n', '[e', diagnostic_goto(false, "ERROR"), { desc = 'Previous Error' })
+	u.buf_map(bufnr, 'n', ']w', diagnostic_goto(true, "WARNING"), { desc = 'Next Warning' })
+	u.buf_map(bufnr, 'n', '[w', diagnostic_goto(false, "WARNING"), { desc = 'Previous Warning' })
 	u.buf_map(bufnr, 'n', 'K', vim.lsp.buf.hover, { desc = 'Hover Documentation' })
 	u.buf_map(bufnr, 'n', "<leader>cl", "<cmd>LspInfo<cr>", { desc = "Lsp Info" })
 end
