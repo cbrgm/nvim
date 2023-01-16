@@ -55,6 +55,7 @@ telescope.setup {
 			"--column",
 			"--smart-case",
 			"--no-ignore",
+			"--hidden",
 			"--trim",
 		},
 		file_ignore_patterns = {
