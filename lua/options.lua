@@ -9,6 +9,8 @@ vim.o.termguicolors = true
 vim.o.hlsearch = false
 -- Make line numbers default
 vim.wo.number = true
+-- Highlight cursor line
+vim.o.cursorline = true
 -- Minimal number of screen lines to keep above and below the cursor
 vim.o.scrolloff = 8
 -- The minimal number of columns to scroll horizontally
