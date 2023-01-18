@@ -62,7 +62,7 @@ u.map('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 u.map("n", "<C-s>", ":w<cr>", { noremap = true })
 
 -- Search
-u.map('n', '<C-f>', "<cmd>silent !tmux neww tmux-sessionizer<cr>")
+-- u.map('n', '<C-f>', "<cmd>silent !tmux neww tmux-sessionizer<cr>")
 u.map('n', '<leader>ov', "<cmd>silent !tmux splitw -f<cr>", { desc = "Open Tmux Terminal (Vertical)" })
 u.map('n', '<leader>oh', "<cmd>silent !tmux splitw -hf<cr>", { desc = "Open Tmux Terminal (Horizontal)" })
 
