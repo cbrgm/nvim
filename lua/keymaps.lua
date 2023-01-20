@@ -75,7 +75,7 @@ u.map("n", "<leader>xq", "<cmd>copen<cr>", { desc = "Open Quickfix List" })
 -- Toggle Options
 u.map("n", "<leader>ts", function() u.toggle("spell") end, { desc = "Toggle Spelling" })
 u.map("n", "<leader>tw", function() u.toggle("wrap") end, { desc = "Toggle Word Wrap" })
-u.map("n", "<leader>tn", function() u.toggle("relativenumber", true) u.toggle("number") end,
+u.map("n", "<leader>tn", function() u.toggle("relativenumber", true) end,
   { desc = "Toggle Line Numbers" })
 u.map("n", "<leader>td", u.toggle_diagnostics, { desc = "Toggle Diagnostics" })
 
