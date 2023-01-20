@@ -7,6 +7,8 @@ local u = require('utils')
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
+u.map({ 'n', 'v' }, '<leader>Q', 'ZZ', { silent = true })
+
 u.map({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 u.map("n", "<leader>bD", "<cmd>%bd|e#|bd#<cr>", { desc = "Close all but the current buffer" })
 u.map("n", "<leader>bd", "<cmd>bd!<cr>", { desc = "Close buffer" })
