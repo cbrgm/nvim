@@ -8,7 +8,9 @@ vim.o.termguicolors = true
 -- Set highlight on search
 vim.o.hlsearch = false
 -- Make line numbers default
-vim.wo.number = true
+vim.o.number = true
+-- Use relativenumber
+vim.o.relativenumber = true
 -- Highlight cursor line
 vim.o.cursorline = true
 -- Minimal number of screen lines to keep above and below the cursor

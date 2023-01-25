@@ -11,7 +11,8 @@ if not luasnip_ok then
 	return
 end
 
-require("luasnip.loaders.from_vscode").lazy_load({ paths = vim.fn.expand("~/.config/nvim/vsnip") })
+-- require("luasnip.loaders.from_vscode").lazy_load({ paths = vim.fn.expand("~/.config/nvim/vsnip") })
+require("luasnip.loaders.from_vscode").lazy_load()
 
 cmp.setup {
 	snippet = {

@@ -22,8 +22,6 @@ autocmd("TextYankPost", {
 -- don't auto comment new line
 autocmd("BufEnter", { command = [[set formatoptions-=cro]] })
 
-autocmd("BufEnter, WinEnter", { command = [[set relativenumber]] })
-
 --- Remove all trailing whitespace on save
 local trim_whitespace_group = augroup("TrimWhiteSpaceGrp", { clear = true })
 autocmd("BufWritePre", {
