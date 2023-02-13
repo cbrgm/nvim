@@ -5,7 +5,7 @@ local u = require('utils')
 local lsp = vim.lsp
 
 -- Enable the following language servers
-local servers = { 'clangd', 'rust_analyzer', 'pyright', 'tsserver', 'sumneko_lua', 'gopls', 'terraformls', 'dockerls',
+local servers = { 'clangd', 'rust_analyzer', 'pyright', 'tsserver', 'lua_ls', 'gopls', 'terraformls', 'dockerls',
 	"bashls", "yamlls" }
 
 local telescope_ok, _ = pcall(require, "telescope")
@@ -179,7 +179,7 @@ local runtime_path = vim.split(package.path, ';')
 table.insert(runtime_path, 'lua/?.lua')
 table.insert(runtime_path, 'lua/?/init.lua')
 
-lspconfig.sumneko_lua.setup {
+lspconfig.lua_ls.setup {
 	on_attach = on_attach,
 	capabilities = capabilities,
 	settings = {
