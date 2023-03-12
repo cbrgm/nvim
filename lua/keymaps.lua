@@ -21,7 +21,7 @@ u.map("n", "[b", ":bprevious<CR>", { desc = "Previous Buffer" })
 u.map("n", "]b", ":bnext<CR>", { desc = "Next Buffer" })
 u.map("n", "[B", ":bfirst<CR>", { desc = "First Buffer" })
 u.map("n", "]B", ":blast<CR>", { desc = "Last Buffer" })
-u.map("n", "<leader><leader>", "<cmd>:e #<cr>", { desc = "Switch to Other Buffer" })
+u.map("n", "<leader>bb", "<cmd>:e #<cr>", { desc = "Switch to Other Buffer" })
 
 -- Tabs
 u.map("n", "[t", ":tabprevious<CR>", { desc = "Previous Tab" })
@@ -84,4 +84,4 @@ u.map('n', '<leader>tl', vim.diagnostic.setloclist, { desc = "Toggle LocList" })
 u.map('n', '<leader>tq', vim.diagnostic.setqflist, { desc = "Toggle QuickFix" })
 
 -- cowboy mode
-u.cowboy()
+-- u.cowboy()
