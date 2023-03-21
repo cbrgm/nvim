@@ -135,7 +135,7 @@ u.map("n", "<leader>gbn", create_new_branch,
   { desc = "Git new Branch", noremap = true, silent = true })
 
 -- Github in browser
-u.map("n", "<leader>go", ":gbrowse<cr>",
+u.map("n", "<leader>go", ":GBrowse<cr>",
   { desc = "open in browser", noremap = true, silent = true })
 u.map("n", "<leader>gpr", ":!gh pr create --fill<cr>",
   { desc = "open pull request", noremap = true, silent = true })
