@@ -46,8 +46,8 @@ gitsigns.setup {
     }
   },
   signcolumn = true, -- Toggle with `:Gitsigns toggle_signs`
-  numhl = false, -- Toggle with `:Gitsigns toggle_numhl`
-  linehl = false, -- Toggle with `:Gitsigns toggle_linehl`
+  numhl = false,     -- Toggle with `:Gitsigns toggle_numhl`
+  linehl = false,    -- Toggle with `:Gitsigns toggle_linehl`
   word_diff = false, -- Toggle with `:Gitsigns toggle_word_diff`
   watch_gitdir = { interval = 1000, follow_files = true },
   attach_to_untracked = true,
@@ -135,5 +135,7 @@ u.map("n", "<leader>gbn", create_new_branch,
   { desc = "Git new Branch", noremap = true, silent = true })
 
 -- Github in browser
-u.map("n", "<leader>go", ":GBrowse<CR>",
-  { desc = "Open in Browser", noremap = true, silent = true })
+u.map("n", "<leader>go", ":gbrowse<cr>",
+  { desc = "open in browser", noremap = true, silent = true })
+u.map("n", "<leader>gpr", ":!gh pr create --fill<cr>",
+  { desc = "open pull request", noremap = true, silent = true })
