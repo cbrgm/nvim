@@ -334,15 +334,40 @@ dapui.setup {
 			terminate = '⏹',
 		},
 	},
+	layouts = {
+		{
+			elements = {
+				"scopes",
+				"repl",
+				"breakpoints"
+
+			},
+			size = 0.3,
+			position = "right"
+		},
+	},
+	floating = {
+		max_height = nil,
+		max_width = nil,
+		border = "single",
+		mappings = {
+			close = { "q", "<Esc>" },
+		},
+	},
+	render = {
+		max_type_length = nil,
+	},
 }
 
 u.map({ 'n' }, "<leader>dc", dap.continue, { desc = "Start / Continue" })
-u.map({ 'n' }, "<leader>di", dap.continue, { desc = "Step into" })
-u.map({ 'n' }, "<leader>du", dap.step_out, { desc = "Step out" })
-u.map({ 'n' }, "<leader>do", dap.step_over, { desc = "Step over" })
+u.map({ 'n' }, "<leader>dC", dap.clear_breakpoints, { desc = "Clear Breakpoints" })
+u.map({ 'n' }, "<leader>di", dap.step_into, { desc = "Step Into" })
+u.map({ 'n' }, "<leader>do", dap.step_out, { desc = "Step Out" })
+u.map({ 'n' }, "<leader>dn", dap.step_over, { desc = "Step Over" })
 u.map({ 'n' }, "<leader>dr", dap.repl.open, { desc = "REPL" })
 u.map({ 'n' }, "<leader>dt", dapui.toggle, { desc = "Toggle UI" })
 u.map({ 'n' }, "<leader>db", dap.toggle_breakpoint, { desc = "Toggle Breakpoint" })
+u.map({ 'n' }, "<leader>dx", dap.terminate, { desc = "Terminate Debugger" })
 u.map({ 'n' }, "<leader>dp",
 	function()
 		dap.set_breakpoint(nil, nil, vim.fn.input("Log point message: "))
