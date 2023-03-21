@@ -297,3 +297,61 @@ lspconfig.yamlls.setup({
 		},
 	},
 })
+
+-- ==============================================================================================
+-- DAP SETTINGS
+-- ==============================================================================================
+
+local dap_ok, dap = pcall(require, "dap")
+if not dap_ok then return end
+
+local dapui_ok, dapui = pcall(require, "dapui")
+if not dapui_ok then return end
+
+require('mason-nvim-dap').setup {
+	-- Makes a best effort to setup the various debuggers with
+	-- reasonable debug configurations
+	automatic_setup = true,
+
+	ensure_installed = {
+		'delve',
+	},
+}
+
+require('mason-nvim-dap').setup_handlers()
+
+dapui.setup {
+	icons = { expanded = '▾', collapsed = '▸', current_frame = '*' },
+	controls = {
+		icons = {
+			pause = '⏸',
+			play = '▶',
+			step_into = '⏎',
+			step_over = '⏭',
+			step_out = '⏮',
+			step_back = 'b',
+			run_last = '▶▶',
+			terminate = '⏹',
+		},
+	},
+}
+
+u.map({ 'n' }, "<leader>dc", dap.continue, { desc = "Start / Continue" })
+u.map({ 'n' }, "<leader>di", dap.continue, { desc = "Step into" })
+u.map({ 'n' }, "<leader>du", dap.step_out, { desc = "Step out" })
+u.map({ 'n' }, "<leader>do", dap.step_over, { desc = "Step over" })
+u.map({ 'n' }, "<leader>dr", dap.repl.open, { desc = "REPL" })
+u.map({ 'n' }, "<leader>dt", dapui.toggle, { desc = "Toggle UI" })
+u.map({ 'n' }, "<leader>db", dap.toggle_breakpoint, { desc = "Toggle Breakpoint" })
+u.map({ 'n' }, "<leader>dp",
+	function()
+		dap.set_breakpoint(nil, nil, vim.fn.input("Log point message: "))
+	end, { desc = "Set condition" })
+u.map({ 'n' }, "<leader>dl", dap.list_breakpoints, { desc = "List Breakpoints" })
+
+dap.listeners.after.event_initialized['dapui_config'] = dapui.open
+dap.listeners.before.event_terminated['dapui_config'] = dapui.close
+dap.listeners.before.event_exited['dapui_config'] = dapui.close
+
+-- Install golang specific config
+require('dap-go').setup()
