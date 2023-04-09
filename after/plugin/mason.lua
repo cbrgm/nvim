@@ -318,7 +318,7 @@ require('mason-nvim-dap').setup {
 	},
 }
 
-require('mason-nvim-dap').setup_handlers()
+require('mason-nvim-dap').setup()
 
 dapui.setup {
 	icons = { expanded = '▾', collapsed = '▸', current_frame = '*' },
