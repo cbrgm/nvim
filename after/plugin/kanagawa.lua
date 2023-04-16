@@ -12,10 +12,11 @@ kanagawa.setup({
 	keywordStyle = { italic = true },
 	statementStyle = { bold = true },
 	typeStyle = {},
-	transparent = true, -- do not set background color
-	dimInactive = false, -- dim inactive window `:h hl-NormalNC`
+	transparent = true,   -- do not set background color
+	dimInactive = false,  -- dim inactive window `:h hl-NormalNC`
 	terminalColors = true, -- define vim.g.terminal_color_{0,17}
-	colors = { -- add/modify theme and palette colors
+	colors = {
+		-- add/modify theme and palette colors
 		palette = {},
 		theme = { all = { ui = { bg_gutter = 'none' } } }
 		-- theme = { wave = {}, lotus = {}, dragon = {}, all = {} },
