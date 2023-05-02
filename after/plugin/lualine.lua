@@ -44,5 +44,5 @@ lualine.setup {
 
 lualine.hide({
 	place = { 'statusline', 'winbar' }, -- The segment this change applies to.
-	unhide = false, -- whether to reenable lualine again/
+	unhide = false,                    -- whether to reenable lualine again/
 })

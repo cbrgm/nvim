@@ -11,10 +11,10 @@ if not trouble_ok then return end
 telescope.setup {
 	extensions = {
 		fzf = {
-			fuzzy = true, -- false will only do exact matching
+			fuzzy = true,                -- false will only do exact matching
 			override_generic_sorter = true, -- override the generic sorter
 			override_file_sorter = true, -- override the file sorter
-			case_mode = "smart_case", -- or "ignore_case" or "respect_case"
+			case_mode = "smart_case",    -- or "ignore_case" or "respect_case"
 			-- the default case_mode is "smart_case"
 		}
 	},
@@ -135,7 +135,6 @@ local search = function()
 	local opt = require('telescope.themes').get_dropdown({ height = 10, previewer = false })
 	require('telescope.builtin').current_buffer_fuzzy_find(opt)
 end
-
 
 u.map('n', "<leader><leader>", "<cmd>Telescope buffers show_all_buffers=true<cr>", { desc = "Switch Buffer" })
 u.map('n', '<space>/', search, { desc = 'Fuzzily search in current buffer' })
