@@ -7,18 +7,18 @@ return function(use)
       'williamboman/mason-lspconfig.nvim'
     },
   }
-  use {
-    'mfussenegger/nvim-dap',
-    requires = {
-      -- Creates a beautiful debugger UI
-      'rcarriga/nvim-dap-ui',
-      -- Installs the debug adapters for you
-      'williamboman/mason.nvim',
-      'jay-babu/mason-nvim-dap.nvim',
-      -- custom debuggers
-      'leoluz/nvim-dap-go',
-    },
-  }
+  -- use {
+  --   'mfussenegger/nvim-dap',
+  --   requires = {
+  --     -- Creates a beautiful debugger UI
+  --     'rcarriga/nvim-dap-ui',
+  --     -- Installs the debug adapters for you
+  --     'williamboman/mason.nvim',
+  --     'jay-babu/mason-nvim-dap.nvim',
+  --     -- custom debuggers
+  --     'leoluz/nvim-dap-go',
+  --   },
+  -- }
   use { -- Autocompletion
     'hrsh7th/nvim-cmp',
     requires = { 'hrsh7th/cmp-nvim-lsp', 'hrsh7th/cmp-buffer', 'hrsh7th/cmp-path', 'hrsh7th/cmp-cmdline',
