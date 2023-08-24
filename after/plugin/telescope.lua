@@ -136,7 +136,7 @@ local search = function()
 	require('telescope.builtin').current_buffer_fuzzy_find(opt)
 end
 
-u.map('n', "<leader><leader>", "<cmd>Telescope buffers show_all_buffers=true<cr>", { desc = "Switch Buffer" })
+u.map('n', "<leader>bb", "<cmd>Telescope buffers show_all_buffers=true<cr>", { desc = "Switch Buffer" })
 u.map('n', '<space>/', search, { desc = 'Fuzzily search in current buffer' })
 u.map('n', '<leader>ff', "<cmd>Telescope git_files<cr>", { desc = 'Search Files (Git)' })
 u.map('n', '<leader>fF', "<cmd>Telescope find_files<cr>", { desc = 'Search Files (All)' })
