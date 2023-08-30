@@ -77,4 +77,14 @@ return function(use)
     "folke/trouble.nvim",
     requires = "kyazdani42/nvim-web-devicons"
   }
+
+  -- chatgpt
+  use({
+    "jackMort/ChatGPT.nvim",
+    requires = {
+      "MunifTanjim/nui.nvim",
+      "nvim-lua/plenary.nvim",
+      "nvim-telescope/telescope.nvim"
+    }
+  })
 end

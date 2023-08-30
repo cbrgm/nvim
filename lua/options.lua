@@ -34,7 +34,7 @@ vim.o.updatetime = 250
 vim.o.timeoutlen = 1000
 vim.wo.signcolumn = 'yes'
 -- allows neovim to access the system clipboard
-vim.o.clipboard = "unnamedplus"
+-- vim.o.clipboard = "unnamedplus"
 -- allow hidden buffers
 vim.o.hidden = true
 -- Show signs in number column (e.g. errors and warnings)
