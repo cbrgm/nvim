@@ -12,7 +12,7 @@ vim.o.number = true
 -- Use relativenumber
 vim.o.relativenumber = true
 -- Highlight cursor line
-vim.o.cursorline = true
+vim.o.cursorline = false
 -- Minimal number of screen lines to keep above and below the cursor
 vim.o.scrolloff = 8
 -- The minimal number of columns to scroll horizontally

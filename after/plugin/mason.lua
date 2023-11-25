@@ -6,7 +6,7 @@ local lsp = vim.lsp
 
 -- Enable the following language servers
 local servers = { 'clangd', 'rust_analyzer', 'pyright', 'tsserver', 'lua_ls', 'gopls', 'terraformls', 'dockerls',
-	"bashls", "yamlls" }
+	"bashls", "yamlls", "rnix" }
 
 local telescope_ok, _ = pcall(require, "telescope")
 if not telescope_ok then return end
@@ -238,8 +238,10 @@ lspconfig.yamlls.setup({
 				["http://json.schemastore.org/github-action"] = ".github/action.{yml,yaml}",
 				["http://json.schemastore.org/chart"] = "Chart.{yml,yaml}",
 				["https://json.schemastore.org/dependabot-2.0"] = ".github/dependabot.{yml,yaml}",
-				["https://raw.githubusercontent.com/compose-spec/compose-spec/master/schema/compose-spec.json"] = "*docker-compose*.{yml,yaml}",
-				["https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.22.2-standalone-strict/all.json"] = "**/*.k8s.{yml,yaml}",
+				["https://raw.githubusercontent.com/compose-spec/compose-spec/master/schema/compose-spec.json"] =
+				"*docker-compose*.{yml,yaml}",
+				["https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.22.2-standalone-strict/all.json"] =
+				"**/*.k8s.{yml,yaml}",
 			},
 			customTags = {
 				"!And scalar",
