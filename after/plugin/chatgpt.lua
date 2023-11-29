@@ -23,8 +23,8 @@ chatgpt.setup {
 	chat = {
 		welcome_message = WELCOME_MESSAGE,
 		loading_text = "Loading, please wait ...",
-		question_sign = "",
-		answer_sign = "ﮧ",
+		question_sign = "", -- 🙂
+		answer_sign = "ﮧ", -- 🤖
 		max_line_length = 120,
 		sessions_window = {
 			border = {
@@ -46,10 +46,14 @@ chatgpt.setup {
 			new_session = "<C-n>",
 			cycle_windows = "<Tab>",
 			cycle_modes = "<C-f>",
+			next_message = "<C-j>",
+			prev_message = "<C-k>",
 			select_session = "<Space>",
 			rename_session = "r",
 			delete_session = "d",
 			draft_message = "<C-d>",
+			edit_message = "e",
+			delete_message = "d",
 			toggle_settings = "<C-o>",
 			toggle_message_role = "<C-r>",
 			toggle_system_role_open = "<C-s>",
@@ -113,9 +117,8 @@ chatgpt.setup {
 		win_options = {
 			winhighlight = "Normal:Normal,FloatBorder:FloatBorder",
 		},
-		submit = "<C-Enter>",
-		submit_n = "<Enter>",
-		max_visible_lines = 20
+		submit = "<C-m>",
+		max_visible_lines = 20,
 	},
 	settings_window = {
 		border = {
@@ -132,17 +135,20 @@ chatgpt.setup {
 		model = "gpt-3.5-turbo",
 		frequency_penalty = 0,
 		presence_penalty = 0,
-		max_tokens = 1000,
+		max_tokens = 300,
 		temperature = 0,
 		top_p = 1,
 		n = 1,
 	},
 	openai_edit_params = {
-		model = "code-davinci-edit-001",
+		model = "gpt-3.5-turbo",
+		frequency_penalty = 0,
+		presence_penalty = 0,
 		temperature = 0,
 		top_p = 1,
 		n = 1,
 	},
+	use_openai_functions_for_edits = false,
 	actions_paths = {},
 	show_quickfixes_cmd = "Trouble quickfix",
 	predefined_chat_gpt_prompts = "https://raw.githubusercontent.com/f/awesome-chatgpt-prompts/main/prompts.csv",
