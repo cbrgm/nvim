@@ -106,4 +106,12 @@ function M.toggle_diagnostics()
   end
 end
 
+function M.closeEmptyNvim()
+  if vim.fn.bufname() == '' and vim.fn.line('$') == 1 and vim.fn.getline(1) == '' then
+    vim.cmd('quit!')
+  else
+    vim.cmd('bd!')
+  end
+end
+
 return M
