@@ -31,9 +31,9 @@ u.map("n", "[T", ":tabfirst<CR>", { desc = "First Tab" })
 u.map("n", "]T", ":tablast<CR>", { desc = "Last Tab" })
 
 -- Paste but dont overwrite
-u.map("x", "<leader>p", "\"_dP", { desc = "Paste without buffer orverwrite" })
-u.map({ "n" }, "<leader>Y", "\"+Y", { desc = "Paste without buffer orverwrite" })
-u.map({ "n", "v" }, "<leader>y", "\"+y", { desc = "Paste without buffer orverwrite" })
+u.map("x", "<leader>p", "\"_dP", { desc = "Paste without buffer overwrite" })
+u.map({ "n" }, "<leader>Y", "\"+Y", { desc = "Paste without buffer overwrite" })
+u.map({ "n", "v" }, "<leader>y", "\"+y", { desc = "Paste without buffer overwrite" })
 -- u.map({ 'n', 'v' }, "<leader>d", "\"_d", { desc = "Delete without buffer orverwrite" })
 
 -- With this you can use > < multiple time for changing indent when you visual selected text.
