@@ -5,7 +5,7 @@ local u = require('utils')
 local telescope_ok, telescope = pcall(require, "telescope")
 if not telescope_ok then return end
 
-local trouble_ok, trouble = pcall(require, "trouble.providers.telescope")
+local trouble_ok, trouble = pcall(require, "trouble.sources.telescope")
 if not trouble_ok then return end
 
 telescope.setup {
