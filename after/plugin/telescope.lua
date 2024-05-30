@@ -85,7 +85,7 @@ telescope.setup {
 				["<cr>"] = require("telescope.actions").select_default,
 				["<c-v>"] = require("telescope.actions").select_vertical,
 				["<c-s>"] = require("telescope.actions").select_horizontal,
-				["<c-t>"] = trouble.open_with_trouble,
+				["<c-t>"] = trouble.open,
 				-- ["<c-t>"] = require("telescope.actions").select_tab,
 				["<c-p>"] = require("telescope.actions.layout").toggle_preview,
 				["<c-o>"] = require("telescope.actions.layout").toggle_mirror,
