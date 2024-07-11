@@ -6,15 +6,15 @@ local trouble_ok, trouble = pcall(require, "trouble")
 if not trouble_ok then return end
 
 trouble.setup({
-	position = "bottom",           -- position of the list can be: bottom, top, left, right
-	height = 10,                   -- height of the trouble list when position is top or bottom
-	width = 50,                    -- width of the list when position is left or right
-	icons = true,                  -- use devicons for filenames
+	position = "bottom", -- position of the list can be: bottom, top, left, right
+	height = 10, -- height of the trouble list when position is top or bottom
+	width = 50, -- width of the list when position is left or right
+	icons = true, -- use devicons for filenames
 	mode = "workspace_diagnostics", -- "workspace_diagnostics", "document_diagnostics", "quickfix", "lsp_references", "loclist"
-	fold_open = "",             -- icon used for open folds
-	fold_closed = "",           -- icon used for closed folds
-	group = true,                  -- group results by file
-	padding = true,                -- add an extra new line on top of the list
+	fold_open = "", -- icon used for open folds
+	fold_closed = "", -- icon used for closed folds
+	group = true, -- group results by file
+	padding = true, -- add an extra new line on top of the list
 	action_keys = {
 		-- key mappings for actions in the trouble list
 		-- map to {} to remove a mapping, for example:
@@ -55,9 +55,9 @@ trouble.setup({
 })
 
 -- mappings
-u.map("n", "<leader>xX", "<cmd>TroubleToggle workspace_diagnostics<cr>",
+u.map("n", "<leader>xX", "<cmd>Trouble diagnostics toggle filter.buf=0<cr>",
 	{ silent = true, noremap = true, desc = "Workspace Diagnostics (Trouble)" }
 )
-u.map("n", "<leader>xx", "<cmd>TroubleToggle document_diagnostics<cr>",
+u.map("n", "<leader>xx", "<cmd>Trouble diagnostics toggle<cr>",
 	{ silent = true, noremap = true, desc = "Document Diagnostics (Trouble)" }
 )
