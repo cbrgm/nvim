@@ -10,18 +10,18 @@ wk.setup {
 	},
 }
 
-wk.register({
+wk.add({
 	mode = { "n", "v" },
-	["g"] = { name = "+goto" },
-	["]"] = { name = "+next" },
-	["["] = { name = "+prev" },
-	["<leader>b"] = { name = "+buffer" },
-	["<leader>c"] = { name = "+code" },
-	["<leader>f"] = { name = "+file" },
-	["<leader>g"] = { name = "+git" },
-	["<leader>h"] = { name = "+help" },
-	["<leader>o"] = { name = "+open" },
-	["<leader>s"] = { name = "+search" },
-	["<leader>t"] = { name = "+toggle" },
-	["<leader>x"] = { name = "+diagnostics/quickfix" },
+	{ "<leader>b", group = "buffer" },
+	{ "<leader>c", group = "code" },
+	{ "<leader>f", group = "file" },
+	{ "<leader>g", group = "git" },
+	{ "<leader>h", group = "help" },
+	{ "<leader>o", group = "open" },
+	{ "<leader>s", group = "search" },
+	{ "<leader>t", group = "toggle" },
+	{ "<leader>x", group = "diagnostics/quickfix" },
+	{ "[",         group = "prev" },
+	{ "]",         group = "next" },
+	{ "g",         group = "goto" },
 })
