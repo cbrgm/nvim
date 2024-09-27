@@ -5,7 +5,7 @@ local u = require('utils')
 local lsp = vim.lsp
 
 -- Enable the following language servers
-local servers = { 'clangd', 'rust_analyzer', 'pyright', 'tsserver', 'lua_ls', 'gopls', 'terraformls', 'dockerls',
+local servers = { 'clangd', 'rust_analyzer', 'pyright', 'ts_ls', 'lua_ls', 'gopls', 'terraformls', 'dockerls',
 	"bashls", "yamlls", "rnix" }
 
 local telescope_ok, _ = pcall(require, "telescope")
